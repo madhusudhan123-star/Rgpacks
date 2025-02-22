@@ -12,6 +12,13 @@ function Footer() {
     { name: 'Contact', path: '/contact' }
   ];
 
+  const handleLinkClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -56,7 +63,11 @@ function Footer() {
             variants={itemVariants}
             className="space-y-6"
           >
-            <Link to="/" className="block w-48 transition-transform hover:scale-105">
+            <Link
+              to="/"
+              onClick={handleLinkClick}
+              className="block w-48 transition-transform hover:scale-105"
+            >
               <div className="bg-white p-4 rounded-lg">
                 <img src={logoimg} alt="RG Packs Logo" className="w-full h-auto" />
               </div>
@@ -97,6 +108,7 @@ function Footer() {
                 >
                   <Link
                     to={link.path}
+                    onClick={handleLinkClick}
                     className="hover:text-[#E31F25] transition-colors duration-300 flex items-center space-x-2"
                   >
                     <span className="text-[#D1A76D]">›</span>
@@ -163,6 +175,7 @@ function Footer() {
                 >
                   <Link
                     to={`/${item.toLowerCase().replace(/ /g, '-')}`}
+                    onClick={handleLinkClick}
                     className="text-sm hover:text-[#E31F25] transition-colors relative group"
                   >
                     {item}

@@ -8,10 +8,12 @@ import Customization from './pages/Custimization'; // Fixed typo
 import Private from './pages/Private';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div>
         <Navbar />
         <Routes>
