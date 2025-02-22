@@ -6,61 +6,61 @@ function Industries() {
       title: "Health & Wellness",
       description: "Safe and hygienic packaging solutions for health products",
       icon: "💊",
-      image: "https://dabbafactory.com/wp-content/uploads/2020/08/Untitled-1-02.png"
+      image: "https://images.unsplash.com/photo-1631010231130-5c7828d9a3a7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D"
     },
     {
       title: "Jewellery & Accessories",
       description: "Elegant and secure packaging for precious items",
       icon: "💎",
-      image: "https://dabbafactory.com/wp-content/uploads/2020/08/Untitled-1-02.png"
+      image: "https://images.unsplash.com/photo-1631010231130-5c7828d9a3a7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D"
     },
     {
       title: "Liquor & Beverages",
       description: "Premium packaging for drinks and spirits",
       icon: "🍷",
-      image: "https://dabbafactory.com/wp-content/uploads/2020/08/Untitled-1-02.png"
+      image: "https://images.unsplash.com/photo-1631010231130-5c7828d9a3a7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D"
     },
     {
       title: "Sweets & Chocolates",
       description: "Attractive packaging for confectionery items",
       icon: "🍫",
-      image: "https://dabbafactory.com/wp-content/uploads/2020/08/Untitled-1-02.png"
+      image: "https://images.unsplash.com/photo-1631010231130-5c7828d9a3a7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D"
     },
     {
       title: "Fashion & Clothing",
       description: "Stylish packaging solutions for apparel",
       icon: "👕",
-      image: "https://dabbafactory.com/wp-content/uploads/2020/08/Untitled-1-02.png"
+      image: "https://images.unsplash.com/photo-1631010231130-5c7828d9a3a7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D"
     },
     {
       title: "Mobiles & Electronics",
       description: "Protective packaging for electronic devices",
       icon: "📱",
-      image: "https://dabbafactory.com/wp-content/uploads/2020/08/Untitled-1-02.png"
+      image: "https://images.unsplash.com/photo-1631010231130-5c7828d9a3a7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D"
     },
     {
       title: "Coffee & Tea",
       description: "Aroma-preserving packaging for beverages",
       icon: "☕",
-      image: "https://dabbafactory.com/wp-content/uploads/2020/08/Untitled-1-02.png"
+      image: "https://images.unsplash.com/photo-1631010231130-5c7828d9a3a7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D"
     },
     {
       title: "Food & Gourmet Packaging",
       description: "Food-grade packaging solutions",
       icon: "🍽",
-      image: "https://dabbafactory.com/wp-content/uploads/2020/08/Untitled-1-02.png"
+      image: "https://images.unsplash.com/photo-1631010231130-5c7828d9a3a7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D"
     },
     {
       title: "Festive & Wedding Packaging",
       description: "Decorative packaging for special occasions",
       icon: "🎁",
-      image: "https://dabbafactory.com/wp-content/uploads/2020/08/Untitled-1-02.png"
+      image: "https://images.unsplash.com/photo-1631010231130-5c7828d9a3a7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D"
     },
     {
       title: "Large Custom Boxes",
       description: "Heavy-duty packaging solutions",
       icon: "📦",
-      image: "https://dabbafactory.com/wp-content/uploads/2020/08/Untitled-1-02.png"
+      image: "https://images.unsplash.com/photo-1631010231130-5c7828d9a3a7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D"
     }
   ];
 

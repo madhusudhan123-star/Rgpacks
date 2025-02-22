@@ -5,10 +5,10 @@ function Home() {
   const navigate = useNavigate();
   // Sample images array - replace with your actual images
   const images = [
-    { id: 1, url: 'https://dabbafactory.com/wp-content/uploads/2020/08/Untitled-1-02.png', alt: 'Product 1' },
-    { id: 2, url: 'https://dabbafactory.com/wp-content/uploads/2020/08/Untitled-1-02.png', alt: 'Product 2' },
-    { id: 3, url: 'https://dabbafactory.com/wp-content/uploads/2020/08/Untitled-1-02.png', alt: 'Product 3' },
-    { id: 4, url: 'https://dabbafactory.com/wp-content/uploads/2020/08/Untitled-1-02.png', alt: 'Product 4' },
+    { id: 1, url: 'https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D', alt: 'Product 1' },
+    { id: 2, url: 'https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D', alt: 'Product 2' },
+    { id: 3, url: 'https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D', alt: 'Product 3' },
+    { id: 4, url: 'https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D', alt: 'Product 4' },
   ];
 
   // Initialize with the first image
@@ -73,21 +73,21 @@ function Home() {
       id: 1,
       title: "Premium Packaging Solutions",
       description: "We deliver high-quality packaging solutions tailored to your specific needs. Our expert team ensures that your products are protected and presented in the best possible way.",
-      image: "https://dabbafactory.com/wp-content/uploads/2020/08/Untitled-1-02.png",
+      image: "https://images.unsplash.com/photo-1577705998148-6da4f3963bc8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGFja2FnZXxlbnwwfHwwfHx8MA%3D%3D",
       buttonText: "Learn More"
     },
     {
       id: 2,
       title: "Sustainable Packaging",
       description: "Committed to environmental responsibility, we offer eco-friendly packaging options that reduce environmental impact while maintaining premium quality and protection.",
-      image: "https://dabbafactory.com/wp-content/uploads/2020/08/Untitled-1-02.png",
+      image: "https://plus.unsplash.com/premium_photo-1681122469507-2d5ad7656217?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGFja2FnZXxlbnwwfHwwfHx8MA%3D%3D",
       buttonText: "Explore Options"
     },
     {
       id: 3,
       title: "Custom Design Services",
       description: "Our design team works closely with you to create unique packaging solutions that reflect your brand identity and meet your specific requirements.",
-      image: "https://dabbafactory.com/wp-content/uploads/2020/08/Untitled-1-02.png",
+      image: "https://images.unsplash.com/photo-1600009723611-7473882201fd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D",
       buttonText: "Start Design"
     }
   ];
