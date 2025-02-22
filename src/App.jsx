@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Industries from './pages/Industries';
-import Customization from './pages/Customization'; // Fixed typo
+import Customization from './pages/Custimization'; // Fixed typo
 import Private from './pages/Private';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';

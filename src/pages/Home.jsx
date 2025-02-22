@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+  const navigate = useNavigate();
   // Sample images array - replace with your actual images
   const images = [
     { id: 1, url: 'https://dabbafactory.com/wp-content/uploads/2020/08/Untitled-1-02.png', alt: 'Product 1' },
@@ -103,6 +105,23 @@ function Home() {
     // Add your form submission logic here
   };
 
+  // Navigation handlers
+  const handleGetStarted = () => {
+    navigate('/contact');
+  };
+
+  const handleLearnMore = () => {
+    navigate('/about');
+  };
+
+  const handleExploreOptions = () => {
+    navigate('/services');
+  };
+
+  const handleStartDesign = () => {
+    navigate('/customization');
+  };
+
   return (
     <div className="p-4">
       {/* Hero Section */}
@@ -120,7 +139,10 @@ function Home() {
             Whether you need luxury packaging, eco-friendly cardboard solutions, or branding through custom
             printed boxes, our state-of-the-art offset printing technology ensures perfection in every detail.
           </p>
-          <button className="bg-[#E31F25] hover:bg-[#D1A76D] text-white px-6 py-3 rounded-lg mt-8 transition-colors">
+          <button
+            onClick={handleGetStarted}
+            className="bg-[#E31F25] hover:bg-[#D1A76D] text-white px-6 py-3 rounded-lg mt-8 transition-colors"
+          >
             Get Started
           </button>
         </div>
@@ -147,9 +169,8 @@ function Home() {
               <div
                 key={image.id}
                 onClick={() => setSelectedImage(image)}
-                className={`cursor-pointer rounded-lg overflow-hidden border-2 ${
-                  selectedImage?.id === image.id ? 'border-green-500' : 'border-transparent'
-                }`}
+                className={`cursor-pointer rounded-lg overflow-hidden border-2 ${selectedImage?.id === image.id ? 'border-green-500' : 'border-transparent'
+                  }`}
               >
                 <img
                   src={image.url}
@@ -171,7 +192,7 @@ function Home() {
         <div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
             {features.map((feature) => (
-              <div 
+              <div
                 key={feature.id}
                 className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border-b-2 border-[#D1A76D]"
               >
@@ -190,7 +211,7 @@ function Home() {
 
       {/* product images */}
       <div>
-        
+
       </div>
 
 
@@ -202,15 +223,13 @@ function Home() {
 
       {/* Alternating Sections */}
       {sections.map((section, index) => (
-        <div 
+        <div
           key={section.id}
-          className={`container mx-auto py-16 px-4 ${
-            index !== sections.length - 1 ? 'border-b border-[#D1A76D]' : ''
-          }`}
+          className={`container mx-auto py-16 px-4 ${index !== sections.length - 1 ? 'border-b border-[#D1A76D]' : ''
+            }`}
         >
-          <div className={`flex flex-col ${
-            index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-          } items-center gap-12`}
+          <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+            } items-center gap-12`}
           >
             {/* Image Section */}
             <div className="w-full lg:w-1/2">
@@ -229,7 +248,24 @@ function Home() {
               <p className="text-gray-600 text-lg leading-relaxed">
                 {section.description}
               </p>
-              <button className="bg-[#E31F25] hover:bg-[#D1A76D] text-white px-6 py-3 rounded-lg transition-colors">
+              <button
+                onClick={() => {
+                  switch (section.buttonText) {
+                    case 'Learn More':
+                      handleLearnMore();
+                      break;
+                    case 'Explore Options':
+                      handleExploreOptions();
+                      break;
+                    case 'Start Design':
+                      handleStartDesign();
+                      break;
+                    default:
+                      handleGetStarted();
+                  }
+                }}
+                className="bg-[#E31F25] hover:bg-[#D1A76D] text-white px-6 py-3 rounded-lg transition-colors"
+              >
                 {section.buttonText}
               </button>
             </div>
@@ -237,7 +273,7 @@ function Home() {
         </div>
       ))}
 
-            {/* Benefits Section */}
+      {/* Benefits Section */}
       <div className="py-16 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-12">
@@ -250,7 +286,7 @@ function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
             {benefits.map((benefit) => (
-              <div 
+              <div
                 key={benefit.id}
                 className="group bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 border-b-2 border-[#D1A76D]"
               >
@@ -290,7 +326,7 @@ function Home() {
                     <input
                       type="text"
                       value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                       required
                     />
@@ -300,7 +336,7 @@ function Home() {
                     <input
                       type="email"
                       value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                       required
                     />
@@ -311,7 +347,7 @@ function Home() {
                   <input
                     type="tel"
                     value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   />
                 </div>
@@ -319,7 +355,7 @@ function Home() {
                   <label className="block text-gray-700 mb-2">Message</label>
                   <textarea
                     value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     rows="4"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     required
@@ -327,6 +363,7 @@ function Home() {
                 </div>
                 <button
                   type="submit"
+                  onClick={() => navigate('/contact')}
                   className="w-full bg-[#E31F25] hover:bg-[#D1A76D] text-white py-3 px-6 rounded-lg transition-colors"
                 >
                   Send Message
@@ -360,7 +397,7 @@ function Home() {
         </div>
       </div>
 
-    </div> 
+    </div>
   );
 }
 
