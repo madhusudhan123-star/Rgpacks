@@ -1,0 +1,22 @@
+@import "tailwindcss";
+@import "./styles/colors.css";
+
+.text-primary { color: var(--primary); }
+.text-light { color: var(--text-light); }
+.text-primary-hover:hover { color: var(--primary-hover); }
+.bg-primary { background-color: var(--primary); }
+.bg-secondary { background-color: var(--secondary); }
+
+.glass-effect {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-effect-mobile {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-top: 1px solid var(--glass-border);
+}
