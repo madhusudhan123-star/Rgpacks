@@ -6,15 +6,8 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
 
-  const menuItems = {
-    industries: {
-      title: 'Industries',
-      submenu: ['Food & Beverages', 'Pharmaceutical', 'Chemical', 'Agriculture']
-    },
-    products: {
-      title: 'Products',
-      submenu: ['Boxes', 'Bags', 'Containers', 'Custom Packaging']
-    }
+  const handleLinkClick = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -69,38 +62,12 @@ function Navbar() {
           {/* Mobile Menu */}
           <div className={`${isOpen ? 'block' : 'hidden'} lg:hidden mt-4`}>
             <div className="flex flex-col space-y-2">
-              <Link to="/" className="text-[#22201E] hover:text-[#E31F25] py-2">Home</Link>
-              <Link to="/about" className="text-[#22201E] hover:text-[#E31F25] py-2">About</Link>
-              
-              {/* Mobile Industries Submenu */}
-              <div className="space-y-2 pl-4">
-                <div className="font-medium text-[#22201E]">Industries</div>
-                {menuItems.industries.submenu.map((item) => (
-                  <Link 
-                    key={item}
-                    to={`/industries/${item.toLowerCase().replace(/ /g, '-')}`}
-                    className="block text-[#22201E] hover:text-[#E31F25] py-1"
-                  >
-                    {item}
-                  </Link>
-                ))}
-              </div>
-
-              {/* Mobile Products Submenu */}
-              <div className="space-y-2 pl-4">
-                <div className="font-medium text-[#22201E]">Products</div>
-                {menuItems.products.submenu.map((item) => (
-                  <Link 
-                    key={item}
-                    to={`/products/${item.toLowerCase().replace(/ /g, '-')}`}
-                    className="block text-[#22201E] hover:text-[#E31F25] py-1"
-                  >
-                    {item}
-                  </Link>
-                ))}
-              </div>
-
-              <Link to="/contact" className="text-[#22201E] hover:text-[#E31F25] py-2">Contact</Link>
+              <Link to="/" onClick={handleLinkClick} className="text-[#22201E] hover:text-[#E31F25] py-2">Home</Link>
+              <Link to="/about" onClick={handleLinkClick} className="text-[#22201E] hover:text-[#E31F25] py-2">About</Link>
+              <Link to="/services" onClick={handleLinkClick} className="text-[#22201E] hover:text-[#E31F25] py-2">Our Service</Link>
+              <Link to="/industries" onClick={handleLinkClick} className="text-[#22201E] hover:text-[#E31F25] py-2">Industries We Serve</Link>
+              <Link to="/customization" onClick={handleLinkClick} className="text-[#22201E] hover:text-[#E31F25] py-2">Customization</Link>
+              <Link to="/contact" onClick={handleLinkClick} className="text-[#22201E] hover:text-[#E31F25] py-2">Contact</Link>
             </div>
           </div>
         </div>

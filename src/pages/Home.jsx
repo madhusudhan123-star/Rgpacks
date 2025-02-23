@@ -125,31 +125,31 @@ function Home() {
   return (
     <div className="p-4">
       {/* Hero Section */}
-      <div className="mt-24 flex h-[70vh]">
+      <div className="mt-24 flex flex-col lg:flex-row min-h-[70vh]">
         {/* content section */}
-        <div className="w-1/2 h-full flex flex-col justify-center items-start">
-          <h1 className="text-[#E31F25] text-7xl">Your Brand, Our Packaging</h1>
-          <h2 className="text-[#D1A76D] text-4xl mt-4">Elevate Every Unboxing Experience</h2>
-          <p className="text-[#22201E] text-lg mt-6 leading-relaxed">
+        <div className="w-full lg:w-1/2 h-full flex flex-col justify-center items-start mb-8 lg:mb-0">
+          <h1 className="text-[#E31F25] text-4xl md:text-5xl lg:text-7xl">Your Brand, Our Packaging</h1>
+          <h2 className="text-[#D1A76D] text-2xl md:text-3xl lg:text-4xl mt-4">Elevate Every Unboxing Experience</h2>
+          <p className="text-[#22201E] text-base lg:text-lg mt-6 leading-relaxed">
             At RG Packs, we understand that packaging is more than just a box—it's the first impression of your
             brand. We specialize in printing and packaging, offering high-quality rigid boxes, corrugated boxes,
             cardboard packaging boxes, and customized printed boxes that make your products stand out.
           </p>
-          <p className="text-[#22201E] text-lg mt-4 leading-relaxed">
+          <p className="text-[#22201E] text-base lg:text-lg mt-4 leading-relaxed">
             Whether you need luxury packaging, eco-friendly cardboard solutions, or branding through custom
             printed boxes, our state-of-the-art offset printing technology ensures perfection in every detail.
           </p>
           <button
             onClick={handleGetStarted}
-            className="bg-[#E31F25] hover:bg-[#D1A76D] text-white px-6 py-3 rounded-lg mt-8 transition-colors"
+            className="bg-[#E31F25] hover:bg-[#D1A76D] text-white px-6 py-3 rounded-lg mt-8 transition-colors w-full sm:w-auto"
           >
             Get Started
           </button>
         </div>
         {/* image section */}
-        <div className="w-1/2">
+        <div className="w-full lg:w-1/2">
           {/* Preview Section */}
-          <div className="mb-4 h-64 rounded-lg overflow-hidden">
+          <div className="mb-4 h-48 md:h-64 rounded-lg overflow-hidden">
             {selectedImage ? (
               <img
                 src={selectedImage.url}
@@ -164,7 +164,7 @@ function Home() {
           </div>
 
           {/* Thumbnail Gallery */}
-          <div className="grid grid-cols-4 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
             {images.map((image) => (
               <div
                 key={image.id}
@@ -184,13 +184,13 @@ function Home() {
       </div>
 
       {/* Why Choose RG Packs Section */}
-      <div className="py-16">
+      <div className="py-8 md:py-16">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-[#22201E] mb-4">Why Choose RG Packs?</h2>
           <div className="w-24 h-1 bg-[#E31F25] mx-auto mb-6"></div>
         </div>
         <div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 px-4">
             {features.map((feature) => (
               <div
                 key={feature.id}
@@ -225,11 +225,11 @@ function Home() {
       {sections.map((section, index) => (
         <div
           key={section.id}
-          className={`container mx-auto py-16 px-4 ${index !== sections.length - 1 ? 'border-b border-[#D1A76D]' : ''
+          className={`container mx-auto py-8 md:py-16 px-4 ${index !== sections.length - 1 ? 'border-b border-[#D1A76D]' : ''
             }`}
         >
           <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-            } items-center gap-12`}
+            } items-center gap-8 lg:gap-12`}
           >
             {/* Image Section */}
             <div className="w-full lg:w-1/2">
@@ -241,11 +241,11 @@ function Home() {
             </div>
 
             {/* Content Section */}
-            <div className="w-full lg:w-1/2 space-y-6">
-              <h3 className="text-3xl font-bold text-gray-800">
+            <div className="w-full lg:w-1/2 space-y-4 md:space-y-6 text-center lg:text-left">
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
                 {section.title}
               </h3>
-              <p className="text-gray-600 text-lg leading-relaxed">
+              <p className="text-gray-600 text-base md:text-lg leading-relaxed">
                 {section.description}
               </p>
               <button
@@ -264,7 +264,7 @@ function Home() {
                       handleGetStarted();
                   }
                 }}
-                className="bg-[#E31F25] hover:bg-[#D1A76D] text-white px-6 py-3 rounded-lg transition-colors"
+                className="bg-[#E31F25] hover:bg-[#D1A76D] text-white px-6 py-3 rounded-lg transition-colors w-full sm:w-auto"
               >
                 {section.buttonText}
               </button>
@@ -274,7 +274,7 @@ function Home() {
       ))}
 
       {/* Benefits Section */}
-      <div className="py-16 bg-white">
+      <div className="py-8 md:py-16 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-[#22201E] mb-4">How Do You Benefit?</h2>
@@ -284,7 +284,7 @@ function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
             {benefits.map((benefit) => (
               <div
                 key={benefit.id}
@@ -306,7 +306,7 @@ function Home() {
       </div>
 
       {/* Contact Us Section */}
-      <div className="py-16 bg-gray-50">
+      <div className="py-8 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-[#22201E] mb-4">Contact Us</h2>
@@ -316,11 +316,11 @@ function Home() {
             </p>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-12">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
             {/* Contact Form */}
             <div className="w-full lg:w-2/3">
-              <form onSubmit={handleFormSubmit} className="bg-white p-8 rounded-xl shadow-lg">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <form onSubmit={handleFormSubmit} className="bg-white p-4 md:p-8 rounded-xl shadow-lg">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
                   <div>
                     <label className="block text-gray-700 mb-2">Name</label>
                     <input
@@ -372,7 +372,7 @@ function Home() {
             </div>
 
             {/* Contact Information */}
-            <div className="w-full lg:w-1/3 space-y-8">
+            <div className="w-full lg:w-1/3 space-y-4 md:space-y-8">
               <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#D1A76D]">
                 <div className="text-3xl mb-4">📞</div>
                 <h3 className="text-xl font-semibold mb-2">Phone</h3>
