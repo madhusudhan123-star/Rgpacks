@@ -131,7 +131,7 @@ function Home() {
           <h1 className="text-[#E31F25] text-4xl md:text-5xl lg:text-7xl">Your Brand, Our Packaging</h1>
           <h2 className="text-[#D1A76D] text-2xl md:text-3xl lg:text-4xl mt-4">Elevate Every Unboxing Experience</h2>
           <p className="text-[#22201E] text-base lg:text-lg mt-6 leading-relaxed">
-            At RG Packs, we understand that packaging is more than just a box—it's the first impression of your
+            At RG Pack, we understand that packaging is more than just a box—it's the first impression of your
             brand. We specialize in printing and packaging, offering high-quality rigid boxes, corrugated boxes,
             cardboard packaging boxes, and customized printed boxes that make your products stand out.
           </p>
@@ -183,10 +183,10 @@ function Home() {
         </div>
       </div>
 
-      {/* Why Choose RG Packs Section */}
+      {/* Why Choose RG Pack Section */}
       <div className="py-8 md:py-16">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-[#22201E] mb-4">Why Choose RG Packs?</h2>
+          <h2 className="text-4xl font-bold text-[#22201E] mb-4">Why Choose RG Pack?</h2>
           <div className="w-24 h-1 bg-[#E31F25] mx-auto mb-6"></div>
         </div>
         <div>

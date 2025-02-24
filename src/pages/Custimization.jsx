@@ -98,7 +98,7 @@ const Customization = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl leading-relaxed"
             >
-              Upload your custom design, and let RG Packs transform it into high-quality, durable packaging that stands out!
+              Upload your custom design, and let RG Pack transform it into high-quality, durable packaging that stands out!
             </motion.p>
           </div>
         </div>

@@ -48,7 +48,7 @@ function About() {
             </motion.span>
             <h1 className="text-5xl font-bold mb-6">Packaging Solutions That Speak for Your Brand</h1>
             <p className="text-xl leading-relaxed">
-              At RG Packs, formerly known as Rudra Graphics, we bring over three decades of expertise in creating
+              At RG Pack, formerly known as Rudra Graphics, we bring over three decades of expertise in creating
               exceptional packaging solutions. Since our establishment, we have been delivering high-quality
               packaging and branding solutions for businesses across various industries.
             </p>
@@ -70,12 +70,12 @@ function About() {
             <div className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-[#D1A76D]">
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
                 Starting our journey as <span className="font-semibold text-[#E31F25]">Rudra Graphics</span>, 
-                we have evolved into <span className="font-semibold text-[#E31F25]">RG Packs</span>, carrying 
+                we have evolved into <span className="font-semibold text-[#E31F25]">RG Pack</span>, carrying 
                 forward a legacy of over <span className="font-semibold text-[#D1A76D]">30 years</span> in the 
                 packaging industry.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Our transformation from Rudra Graphics to RG Packs represents our commitment to innovation while 
+                Our transformation from Rudra Graphics to RG Pack represents our commitment to innovation while 
                 maintaining the core values and expertise that have made us a trusted name in the industry for 
                 more than three decades.
               </p>
