@@ -17,19 +17,31 @@ const Customization = () => {
       number: 1,
       title: "Download the dieline",
       description: "Get the template for your packaging design",
-      icon: "⬇️"
+      icon: (
+        <svg className="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+        </svg>
+      )
     },
     {
       number: 2,
       title: "Place your design",
       description: "Add your custom design to the template",
-      icon: "🎨"
+      icon: (
+        <svg className="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+        </svg>
+      )
     },
     {
       number: 3,
       title: "Upload & order",
       description: "Submit your design and we'll handle the rest",
-      icon: "📤"
+      icon: (
+        <svg className="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+        </svg>
+      )
     }
   ];
 
@@ -80,7 +92,7 @@ const Customization = () => {
   return (
     <div className="pt-24">
       {/* Hero Section */}
-      <div className="relative h-[50vh] bg-gradient-to-r from-[#22201E] to-[#E31F25] overflow-hidden">
+      <div className="relative h-[50vh] bg-gradient-[#E31F25] overflow-hidden">
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="container mx-auto px-4 h-full flex items-center relative z-10">
           <div className="max-w-3xl text-white">
@@ -163,7 +175,7 @@ const Customization = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="text-center p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
               >
-                <div className="text-4xl mb-4">{step.icon}</div>
+                <div className="mb-4 text-[#22201E]">{step.icon}</div>
                 <div className="text-2xl font-bold text-[#22201E] mb-2">Step {step.number}</div>
                 <h3 className="text-xl font-semibold text-[#D1A76D] mb-3">{step.title}</h3>
                 <p className="text-gray-600">{step.description}</p>

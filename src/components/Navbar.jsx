@@ -28,7 +28,7 @@ function Navbar() {
 
       {/* Main Navbar */}
       <div className="bg-white shadow-md">
-        <div className="container mx-auto p-4">
+        <div className="container mx-auto px-10 py-4">
           <div className="flex justify-between items-center">
             <Link to="/" className="w-48">
               <img src={logoimg} alt='logo' className='w-full' />
@@ -41,7 +41,7 @@ function Navbar() {
 
               <li><Link to="/services" className="text-[#22201E] hover:text-[#E31F25]">Our Service</Link></li>
               <li><Link to="/industries" className="text-[#22201E] hover:text-[#E31F25]">Industries We Serve</Link></li>
-              
+
               <li><Link to="/customization" className="text-[#22201E] hover:text-[#E31F25]">Customization</Link></li>
 
               <li><Link to="/contact" className="text-[#22201E] hover:text-[#E31F25]">Contact</Link></li>

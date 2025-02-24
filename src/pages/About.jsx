@@ -12,33 +12,49 @@ function About() {
     {
       title: "Expert Solutions",
       description: "Expertise in rigid boxes, corrugated boxes, and printed cardboard boxes",
-      icon: "📦"
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+          <path strokeLinecap="round" strokeLinejoin="round" d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+        </svg>
+      )
     },
     {
       title: "Premium Printing",
       description: "Advanced offset printing for premium-quality packaging",
-      icon: "🖨️"
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 2.523a1.125 1.125 0 0 1-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0 0 21 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 0 0-1.913-.247M6.34 18H5.25A2.25 2.25 0 0 1 3 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 0 1 1.913-.247m10.5 0a48.536 48.536 0 0 0-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5Zm-3 0h.008v.008H15V10.5Z" />
+        </svg>
+      )
     },
     {
       title: "Custom Branding",
       description: "Custom branding solutions to elevate your brand image",
-      icon: "🎨"
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42" />
+        </svg>
+      )
     },
     {
       title: "Reliable Supply",
       description: "Trusted cardboard box suppliers for bulk and small-scale orders",
-      icon: "🚚"
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+        </svg>
+      )
     }
   ];
 
   return (
     <div className="pt-24">
       {/* Hero Section - Updated with legacy mention */}
-      <div className="relative h-[60vh] bg-gradient-to-r from-[#22201E] to-[#E31F25] overflow-hidden">
+      <div className="relative h-[60vh] bg-[#E31F25]  overflow-hidden">
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="container mx-auto px-4 h-full flex items-center relative z-10">
           <div className="max-w-3xl text-white">
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -59,7 +75,7 @@ function About() {
       {/* Legacy Section - New Addition */}
       <div className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -69,14 +85,14 @@ function About() {
             <div className="w-24 h-1 bg-[#E31F25] mx-auto mb-8"></div>
             <div className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-[#D1A76D]">
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Starting our journey as <span className="font-semibold text-[#E31F25]">Rudra Graphics</span>, 
-                we have evolved into <span className="font-semibold text-[#E31F25]">RG Pack</span>, carrying 
-                forward a legacy of over <span className="font-semibold text-[#D1A76D]">30 years</span> in the 
+                Starting our journey as <span className="font-semibold text-[#E31F25]">Rudra Graphics</span>,
+                we have evolved into <span className="font-semibold text-[#E31F25]">RG Pack</span>, carrying
+                forward a legacy of over <span className="font-semibold text-[#D1A76D]">30 years</span> in the
                 packaging industry.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Our transformation from Rudra Graphics to RG Pack represents our commitment to innovation while 
-                maintaining the core values and expertise that have made us a trusted name in the industry for 
+                Our transformation from Rudra Graphics to RG Pack represents our commitment to innovation while
+                maintaining the core values and expertise that have made us a trusted name in the industry for
                 more than three decades.
               </p>
             </div>
