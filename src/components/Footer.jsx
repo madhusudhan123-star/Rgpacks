@@ -93,7 +93,7 @@ function Footer() {
   ];
 
   return (
-    <footer className="bg-[#22201E] text-gray-300">
+    <footer className="bg-[#22201E] px-10 text-gray-300">
       {/* Main Footer */}
       <motion.div
         variants={containerVariants}

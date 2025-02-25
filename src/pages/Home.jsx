@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/fonts.css'
+import { motion } from 'framer-motion'; // Add this import
 
 function Home() {
   const navigate = useNavigate();
@@ -17,27 +19,27 @@ function Home() {
   const features = [
     {
       id: 1,
-      icon: "https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D", // Replace with actual image path
+      icon: "https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D", // Replace with your actual icon path
       title: "Customized Packaging",
-      description: "Your products deserve more than just a box—they deserve a statement. Our customized packaging turns first impressions into lasting connections."
+      description: "Your products deserve more than just a box—they deserve a statement."
     },
     {
       id: 2,
-      icon: "https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D", // Replace with actual image path
+      icon: "https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D", // Replace with your actual icon path
       title: "High-Quality Printing",
-      description: "From bold colors to intricate details, our high-quality offset printing makes every package a work of art, ensuring your brand stands out."
+      description: "From bold colors to intricate details, our high-quality offset printing."
     },
     {
       id: 3,
-      icon: "https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D", // Replace with actual image path
+      icon: "https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D", // Replace with your actual icon path
       title: "Durable Solutions",
-      description: "Say goodbye to shipping worries! Our durable cardboard and corrugated boxes keep your products safe, no matter where they go."
+      description: "Say goodbye to shipping worries! Our durable cardboard boxes."
     },
     {
       id: 4,
-      icon: "https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D", // Replace with actual image path
-      title: "Industry Experts",
-      description: "Luxury, retail, food, electronics—whatever your business, we create packaging that blends style, function, and quality seamlessly."
+      icon: "https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D", // Replace with your actual icon path
+      title: "Expert box manufacturers",
+      description: "Luxury, retail, food, electronics—whatever your business needs."
     }
   ];
 
@@ -139,97 +141,141 @@ function Home() {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 px-10">
       {/* Hero Section */}
-      <div className="mt-24 px-10 flex flex-col lg:flex-row min-h-[70vh]">
-        {/* content section */}
-        <div className="w-full lg:w-1/2 h-full flex flex-col justify-center items-start mb-8 lg:mb-0">
-          <h1 className="text-[#E31F25] text-4xl md:text-5xl lg:text-7xl">Your Brand, Our Packaging</h1>
-          <h2 className="text-[#D1A76D] text-2xl md:text-3xl lg:text-4xl mt-4">Elevate Every Unboxing Experience</h2>
-          {/* <button
-            onClick={handleGetStarted}
-            className="bg-[#E31F25] hover:bg-[#D1A76D] text-white px-6 py-3 rounded-lg mt-8 transition-colors w-full sm:w-auto"
-          >
-            Get Started
-          </button> */}
-        </div>
-        {/* image section */}
-        <div className="w-full lg:w-1/2">
-          {/* Preview Section */}
-          <div className="mb-4 h-48 md:h-64 rounded-lg overflow-hidden">
-            {selectedImage ? (
-              <img
-                src={selectedImage.url}
-                alt={selectedImage.alt}
-                className="w-full h-full object-contain"
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center">
-                Select an image to preview
-              </div>
-            )}
-          </div>
+      <div className="relative mt-24 px-6 md:px-12 min-h-[80vh]">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100 opacity-70"></div>
 
-          {/* Thumbnail Gallery */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-            {images.map((image) => (
-              <div
-                key={image.id}
-                onClick={() => setSelectedImage(image)}
-                className={`cursor-pointer rounded-lg overflow-hidden border-2 ${selectedImage?.id === image.id ? 'border-green-500' : 'border-transparent'
-                  }`}
-              >
-                <img
-                  src={image.url}
-                  alt={image.alt}
-                  className="w-full h-24 object-cover"
-                />
+        <div className="relative flex flex-col lg:flex-row items-center">
+          {/* Content section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="w-full lg:w-1/2 h-full flex flex-col justify-center items-start mb-12 lg:mb-0"
+          >
+            <div className="space-y-6">
+              <h1 className="text-4xl mb-0 pb-0 md:text-6xl lg:text-7xl font-bold">
+                <span className="block text-[#E31F25] mb-2">Your Brand</span>
+                <span className="block text-[#22201E]">Our Packaging</span>
+                {/* <span className="block text-[#D1A76D]">Solutions</span> */}
+              </h1>
+
+              <p className="text-lg mt-0 pt-0 md:text-xl text-gray-600 max-w-xl">Elevate Every Unboxing Experience</p>
+
+              <div className="flex flex-wrap gap-4">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={handleGetStarted}
+                  className="bg-[#E31F25] hover:bg-[#c41920] text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  Get Started
+                </motion.button>
+
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={handleLearnMore}
+                  className="border-2 border-[#D1A76D] text-[#D1A76D] hover:bg-[#D1A76D] hover:text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300"
+                >
+                  Learn More
+                </motion.button>
               </div>
-            ))}
-          </div>
+            </div>
+          </motion.div>
+
+          {/* Image section */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="w-full lg:w-1/2"
+          >
+            {/* Preview Section */}
+            <div className="relative">
+              <div className="mb-6 h-64 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
+                {selectedImage && (
+                  <motion.img
+                    initial={{ scale: 1 }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                    src={selectedImage.url}
+                    alt={selectedImage.alt}
+                    className="w-full h-full object-cover"
+                  />
+                )}
+              </div>
+
+              {/* Thumbnail Gallery */}
+              <div className="grid grid-cols-4 gap-3">
+                {images.map((image) => (
+                  <motion.div
+                    key={image.id}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setSelectedImage(image)}
+                    className={`cursor-pointer rounded-lg overflow-hidden shadow-md 
+                      ${selectedImage?.id === image.id
+                        ? 'ring-2 ring-[#E31F25] ring-offset-2'
+                        : 'hover:ring-2 hover:ring-[#D1A76D] hover:ring-offset-2'
+                      }`}
+                  >
+                    <img
+                      src={image.url}
+                      alt={image.alt}
+                      className="w-full h-20 object-cover"
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Why Choose RG Pack Section */}
-      <div className="py-8 md:py-16 bg-gray-50">
-        <div className="">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-[#22201E] mb-4">Why Choose RG Pack?</h2>
-            <div className="w-24 h-1 bg-[#E31F25] mx-auto mb-6"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              We deliver excellence in every package, combining innovation with reliability
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
-            {features.map((feature) => (
-              <div
+      <div className="py-16 ">
+        <div className="max-w-7xl mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-[#22201E]">
+              Why Choose <span className="text-[#E31F25]">RG Pack</span>?
+            </h2>
+            <div className="w-24 h-1 bg-[#E31F25] mx-auto my-6"></div>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <motion.div
                 key={feature.id}
-                className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white rounded-xl p-8 hover:shadow-xl transition-all duration-300"
               >
-                <div className="mb-6 flex justify-center">
+                <div className="mb-6 relative">
                   <img
                     src={feature.icon}
                     alt={feature.title}
-                    className=" object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-[#22201E] mb-4 text-center">
+                <h3 className="text-xl font-bold text-[#22201E] mb-3 text-center">
                   {feature.title}
                 </h3>
-                {/* <p className="text-gray-600 text-center leading-relaxed">
-                  {feature.description}
-                </p> */}
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </div>
-
-      {/* product images */}
-      <div>
-
-      </div>
-
 
       {/* Main Title */}
       <div className="text-center py-16">
@@ -264,7 +310,7 @@ function Home() {
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
                 {section.description}
               </p>
-              <button
+              {/* <button
                 onClick={() => {
                   switch (section.buttonText) {
                     case 'Learn More':
@@ -283,7 +329,7 @@ function Home() {
                 className="bg-[#E31F25] hover:bg-[#D1A76D] text-white px-6 py-3 rounded-lg transition-colors w-full sm:w-auto"
               >
                 {section.buttonText}
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
@@ -304,17 +350,14 @@ function Home() {
             {benefits.map((benefit) => (
               <div
                 key={benefit.id}
-                className="group bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 border-b-2 border-[#D1A76D]"
+                className="group text-center bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 border-b-2 border-[#D1A76D]"
               >
-                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-5xl flex justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   {benefit.icon}
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">
                   {benefit.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {benefit.description}
-                </p>
               </div>
             ))}
           </div>
@@ -322,7 +365,7 @@ function Home() {
       </div>
 
       {/* Contact Us Section */}
-      <div className="py-8 md:py-16 bg-gray-50">
+      <div className="py-8 md:py-16">
         <div className="">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-[#22201E] mb-4">Contact Us</h2>

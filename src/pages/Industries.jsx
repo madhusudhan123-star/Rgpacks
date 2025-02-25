@@ -108,7 +108,7 @@ function Industries() {
     <div className="pt-24">
       {/* Hero Section */}
       <div className="relative h-[50vh] bg-[#E31F25] overflow-hidden">
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-black/40"></div>
         <div className="container mx-auto px-4 h-full flex items-center relative z-10">
           <div className="max-w-3xl text-white">
             <motion.h1
@@ -183,7 +183,9 @@ function Industries() {
               Let's create packaging solutions that perfectly match your industry requirements.
             </p>
             <button className="bg-[#E31F25] hover:bg-[#D1A76D] text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors">
-              Contact Us Today
+              <a href='/contact'>
+                Contact Us Today
+              </a>
             </button>
           </motion.div>
         </div>

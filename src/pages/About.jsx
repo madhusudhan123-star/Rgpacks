@@ -51,7 +51,7 @@ function About() {
     <div className="pt-24">
       {/* Hero Section - Updated with legacy mention */}
       <div className="relative h-[60vh] bg-[#E31F25]  overflow-hidden">
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-black/30"></div>
         <div className="container mx-auto px-4 h-full flex items-center relative z-10">
           <div className="max-w-3xl text-white">
             <motion.span
@@ -64,16 +64,17 @@ function About() {
             </motion.span>
             <h1 className="text-5xl font-bold mb-6">Packaging Solutions That Speak for Your Brand</h1>
             <p className="text-xl leading-relaxed">
-              At RG Pack, formerly known as Rudra Graphics, we bring over three decades of expertise in creating
-              exceptional packaging solutions. Since our establishment, we have been delivering high-quality
-              packaging and branding solutions for businesses across various industries.
+              At RG Packs, we don’t just create boxes—we create experiences. Established in 2004, we have been
+              delivering high-quality packaging and branding solutions for businesses across various industries. From
+              customized printed boxes to durable corrugated and cardboard packaging, we offer innovative designs
+              that protect and enhance your product presentation
             </p>
           </div>
         </div>
       </div>
 
       {/* Legacy Section - New Addition */}
-      <div className="py-16 bg-gray-50">
+      {/* <div className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -98,7 +99,7 @@ function About() {
             </div>
           </motion.div>
         </div>
-      </div>
+      </div> */}
 
       {/* Vision & Mission Section */}
       <div className="py-16 bg-white">
@@ -184,7 +185,7 @@ function About() {
       </div>
 
       {/* Story Section - Updated */}
-      <div className="py-20 bg-white">
+      {/* <div className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -197,17 +198,20 @@ function About() {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* CTA Section */}
-      <div className="py-20 bg-gradient-to-r from-[#22201E] to-[#E31F25] text-white">
-        <div className="container mx-auto px-4 text-center">
+      <div className="py-20 bg-[#E31F25] text-white relative">
+        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-4xl font-bold mb-6">Ready to Get Started?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Let's work together to create packaging solutions that elevate your brand and protect your products.
           </p>
           <button className="bg-[#D1A76D] hover:bg-[#D1A76D]/90 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors">
-            Contact Us Today
+            <a href='/contact'>
+              Contact Us Today
+            </a>
           </button>
         </div>
       </div>

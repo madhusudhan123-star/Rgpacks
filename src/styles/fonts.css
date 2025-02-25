@@ -1,0 +1,20 @@
+.font {
+    font-family: 'Eirene Sans';
+    src: url('../assets/font/EireneSans-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+.font-bold {
+    font-family: 'Eirene Sans';
+    src: url('../assets/font/EireneSans-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-display: swap;
+}
+.font-italic {
+    font-family: 'Eirene Sans';
+    src: url('../assets/font/EireneSans-Italic.otf') format('opentype');
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+}
