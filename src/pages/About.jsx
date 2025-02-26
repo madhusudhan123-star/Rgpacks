@@ -50,8 +50,8 @@ function About() {
   return (
     <div className="pt-24">
       {/* Hero Section - Updated with legacy mention */}
-      <div className="relative h-[60vh] bg-[#E31F25]  overflow-hidden">
-        <div className="absolute inset-0 bg-black/30"></div>
+      <div className="relative h-[60vh] bg-[#E4272D]  overflow-hidden">
+        {/* <div className="absolute inset-0 bg-black/30"></div> */}
         <div className="container mx-auto px-4 h-full flex items-center relative z-10">
           <div className="max-w-3xl text-white">
             <motion.span

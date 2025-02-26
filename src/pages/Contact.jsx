@@ -66,8 +66,8 @@ function Contact() {
   return (
     <div className="pt-24">
       {/* Hero Section */}
-      <div className="relative h-[40vh] bg-[#E31F25] overflow-hidden">
-        <div className="absolute inset-0 bg-black/50"></div>
+      <div className="relative h-[40vh] bg-[#E4272D] overflow-hidden">
+        {/* <div className="absolute inset-0 bg-black/50"></div> */}
         <div className="container mx-auto px-4 h-full flex items-center relative z-10">
           <div className="max-w-3xl text-white">
             <h1 className="text-5xl font-bold mb-6">Get in Touch</h1>

@@ -2,15 +2,61 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/fonts.css'
 import { motion } from 'framer-motion'; // Add this import
+import one from '../assets/home/one.jpg'
+import two from '../assets/home/two.jpg'
+import three from '../assets/home/three.jpg'
+import four from '../assets/home/four.jpg'
+import whyone from '../assets/home/whyone.jpg'
+import whytwo from '../assets/home/whytwo.jpg'
+import whythree from '../assets/home/whythree.jpg'
+import whyfour from '../assets/home/whyfour.jpg'
+import blogone from '../assets/home/blog1.jpg'
+import blogtwo from '../assets/home/blog2.jpg'
+import blogthree from '../assets/home/blog3.jpg'
+import design from '../assets/design.svg'
+import designtwo from '../assets/designtwo.svg'
+import designthree from '../assets/designthree.svg'
+
+// Add these new variants for animations
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5
+    }
+  }
+};
+
+const cardHoverVariants = {
+  hover: {
+    scale: 1.05,
+    boxShadow: "0px 10px 20px rgba(0,0,0,0.1)",
+    transition: {
+      duration: 0.3
+    } 
+  }
+};
 
 function Home() {
   const navigate = useNavigate();
   // Sample images array - replace with your actual images
   const images = [
-    { id: 1, url: 'https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D', alt: 'Product 1' },
-    { id: 2, url: 'https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D', alt: 'Product 2' },
-    { id: 3, url: 'https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D', alt: 'Product 3' },
-    { id: 4, url: 'https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D', alt: 'Product 4' },
+    { id: 1, url: one, alt: 'Product 1' },
+    { id: 2, url: two, alt: 'Product 2' },
+    { id: 3, url: three, alt: 'Product 3' },
+    { id: 4, url: four, alt: 'Product 4' },
   ];
 
   // Initialize with the first image
@@ -19,25 +65,25 @@ function Home() {
   const features = [
     {
       id: 1,
-      icon: "https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D", // Replace with your actual icon path
+      icon: whyone, // Replace with your actual icon path
       title: "Customized Packaging",
       description: "Your products deserve more than just a box—they deserve a statement."
     },
     {
       id: 2,
-      icon: "https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D", // Replace with your actual icon path
+      icon: whytwo, // Replace with your actual icon path
       title: "High-Quality Printing",
       description: "From bold colors to intricate details, our high-quality offset printing."
     },
     {
       id: 3,
-      icon: "https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D", // Replace with your actual icon path
+      icon: whythree, // Replace with your actual icon path
       title: "Durable Solutions",
       description: "Say goodbye to shipping worries! Our durable cardboard boxes."
     },
     {
       id: 4,
-      icon: "https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D", // Replace with your actual icon path
+      icon: whyfour, // Replace with your actual icon path
       title: "Expert box manufacturers",
       description: "Luxury, retail, food, electronics—whatever your business needs."
     }
@@ -91,21 +137,21 @@ function Home() {
       id: 1,
       title: "Premium Packaging Solutions",
       description: "We deliver high-quality packaging solutions tailored to your specific needs. Our expert team ensures that your products are protected and presented in the best possible way.",
-      image: "https://images.unsplash.com/photo-1577705998148-6da4f3963bc8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGFja2FnZXxlbnwwfHwwfHx8MA%3D%3D",
+      image: blogone,
       buttonText: "Learn More"
     },
     {
       id: 2,
       title: "Sustainable Packaging",
       description: "Committed to environmental responsibility, we offer eco-friendly packaging options that reduce environmental impact while maintaining premium quality and protection.",
-      image: "https://plus.unsplash.com/premium_photo-1681122469507-2d5ad7656217?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGFja2FnZXxlbnwwfHwwfHx8MA%3D%3D",
+      image: blogtwo,
       buttonText: "Explore Options"
     },
     {
       id: 3,
       title: "Custom Design Services",
       description: "Our design team works closely with you to create unique packaging solutions that reflect your brand identity and meet your specific requirements.",
-      image: "https://images.unsplash.com/photo-1600009723611-7473882201fd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHBhY2thZ2V8ZW58MHx8MHx8fDA%3D",
+      image: blogthree,
       buttonText: "Start Design"
     }
   ];
@@ -132,30 +178,27 @@ function Home() {
     navigate('/about');
   };
 
-  const handleExploreOptions = () => {
-    navigate('/services');
-  };
-
-  const handleStartDesign = () => {
-    navigate('/customization');
-  };
-
   return (
-    <div className="p-4 px-10">
-      {/* Hero Section */}
-      <div className="relative mt-24 px-6 md:px-12 min-h-[80vh]">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100 opacity-70"></div>
+    <div className="p-4 ">
+      {/* Hero Section with enhanced animations */}
+      <div className="relative  mt-24 md:px-12 min-h-[80vh]">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.7 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100"
+        ></motion.div>
 
-        <div className="relative flex flex-col lg:flex-row items-center">
+        <div className="relative px-16 flex flex-col lg:flex-row items-center">
           {/* Content section */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="w-full lg:w-1/2 h-full flex flex-col justify-center items-start mb-12 lg:mb-0"
           >
-            <div className="space-y-6">
+            <div className="space-y-6 relative z-10">
+              <img src={design} className='absolute -bottom-[11.5rem] right-0 -z-10' />
               <h1 className="text-4xl mb-0 pb-0 md:text-6xl lg:text-7xl font-bold">
                 <span className="block text-[#E31F25] mb-2">Your Brand</span>
                 <span className="block text-[#22201E]">Our Packaging</span>
@@ -191,7 +234,7 @@ function Home() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full lg:w-1/2"
+            className="w-full lg:w-1/2 relative z-10"
           >
             {/* Preview Section */}
             <div className="relative">
@@ -235,58 +278,71 @@ function Home() {
         </div>
       </div>
 
-      {/* Why Choose RG Pack Section */}
-      <div className="py-16 ">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#22201E]">
-              Why Choose <span className="text-[#E31F25]">RG Pack</span>?
-            </h2>
-            <div className="w-24 h-1 bg-[#E31F25] mx-auto my-6"></div>
-          </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl p-8 hover:shadow-xl transition-all duration-300"
-              >
-                <div className="mb-6 relative">
-                  <img
-                    src={feature.icon}
-                    alt={feature.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-[#22201E] mb-3 text-center">
-                  {feature.title}
-                </h3>
-              </motion.div>
-            ))}
-          </div>
+      {/* Why Choose RG Pack Section with enhanced animations */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="py-24"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16 relative"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-[#22201E]">
+            Why Choose <span className="text-[#E31F25]">RG Pack</span>?
+          </h2>
+          <div className="w-24 h-1 bg-[#E31F25] mx-auto my-6"></div>
+          <img src={designtwo} className='absolute top-0' />
+        </motion.div>
+        <div className="grid grid-cols-1 relative sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map((feature) => (
+            <motion.div
+              key={feature.id}
+              variants={itemVariants}
+              whileHover={cardHoverVariants.hover}
+              className="bg-white rounded-xl p-8 transition-all duration-300"
+            >
+              <div className="mb-6 relative">
+                <img
+                  src={feature.icon}
+                  alt={feature.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-xl font-bold text-[#22201E] mb-3 text-center">
+                {feature.title}
+              </h3>
+            </motion.div>
+          ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* Main Title */}
-      <div className="text-center py-16">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="text-center py-24"
+      >
         <h2 className="text-4xl font-bold text-[#22201E] mb-4">Our Services</h2>
         <div className="w-24 h-1 bg-[#E31F25] mx-auto"></div>
-      </div>
+      </motion.div>
 
       {/* Alternating Sections */}
       {sections.map((section, index) => (
-        <div
+        <motion.div
           key={section.id}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
           className={` py-8 md:py-16 px-4 ${index !== sections.length - 1 ? 'border-b border-[#D1A76D]' : ''
             }`}
         >
@@ -303,13 +359,14 @@ function Home() {
             </div>
 
             {/* Content Section */}
-            <div className="w-full lg:w-1/2 space-y-4 md:space-y-6 text-center lg:text-left">
+            <div className="w-full lg:w-1/2 space-y-4 relative md:space-y-6 text-center lg:text-left">
               <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
                 {section.title}
               </h3>
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
                 {section.description}
               </p>
+              <img src={designthree} className='' />
               {/* <button
                 onClick={() => {
                   switch (section.buttonText) {
@@ -330,13 +387,20 @@ function Home() {
               >
                 {section.buttonText}
               </button> */}
+
             </div>
           </div>
-        </div>
+        </motion.div>
       ))}
 
-      {/* Benefits Section */}
-      <div className="py-8 md:py-16 bg-white">
+      {/* Benefits Section with enhanced animations */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="py-8 md:py-24 bg-white"
+      >
         <div className="">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-[#22201E] mb-4">How Do You Benefit?</h2>
@@ -348,9 +412,11 @@ function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
             {benefits.map((benefit) => (
-              <div
+              <motion.div
                 key={benefit.id}
-                className="group text-center bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 border-b-2 border-[#D1A76D]"
+                variants={itemVariants}
+                whileHover={cardHoverVariants.hover}
+                className="group text-center bg-gray-50 p-8 rounded-xl shadow-sm border-b-2 border-[#D1A76D]"
               >
                 <div className="text-5xl flex justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   {benefit.icon}
@@ -358,14 +424,20 @@ function Home() {
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">
                   {benefit.title}
                 </h3>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Contact Us Section */}
-      <div className="py-8 md:py-16">
+      {/* Contact Us Section with enhanced animations */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="py-8 md:py-24"
+      >
         <div className="">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-[#22201E] mb-4">Contact Us</h2>
@@ -377,7 +449,10 @@ function Home() {
 
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
             {/* Contact Form */}
-            <div className="w-full lg:w-2/3">
+            <motion.div
+              variants={itemVariants}
+              className="w-full lg:w-2/3"
+            >
               <form onSubmit={handleFormSubmit} className="bg-white p-4 md:p-8 rounded-xl shadow-lg">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
                   <div>
@@ -428,33 +503,48 @@ function Home() {
                   Send Message
                 </button>
               </form>
-            </div>
+            </motion.div>
 
             {/* Contact Information */}
-            <div className="w-full lg:w-1/3 space-y-4 md:space-y-8">
-              <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#D1A76D]">
+            <motion.div
+              variants={containerVariants}
+              className="w-full lg:w-1/3 space-y-4 md:space-y-8"
+            >
+              <motion.div
+                variants={itemVariants}
+                whileHover={cardHoverVariants.hover}
+                className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#D1A76D]"
+              >
                 <div className="text-3xl mb-4">📞</div>
                 <h3 className="text-xl font-semibold mb-2">Phone</h3>
                 <p className="text-gray-600">+91 98660 06169</p>
-              </div>
+              </motion.div>
 
-              <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#D1A76D]">
+              <motion.div
+                variants={itemVariants}
+                whileHover={cardHoverVariants.hover}
+                className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#D1A76D]"
+              >
                 <div className="text-3xl mb-4">✉️</div>
                 <h3 className="text-xl font-semibold mb-2">Email</h3>
                 <p className="text-gray-600">info@rgpack.in</p>
-              </div>
+              </motion.div>
 
-              <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#D1A76D]">
+              <motion.div
+                variants={itemVariants}
+                whileHover={cardHoverVariants.hover}
+                className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#D1A76D]"
+              >
                 <div className="text-3xl mb-4">📍</div>
                 <h3 className="text-xl font-semibold mb-2">Visit Us</h3>
                 <p className="text-gray-600">
                   Plot D-4 and D-5, IDA, Gandhi Nagar Industrial Area, Kukatpally, Hyderabad, Telangana 500037
                 </p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
     </div>
   );

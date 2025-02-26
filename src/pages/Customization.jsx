@@ -153,78 +153,78 @@ const Customization = () => {
         }
     };
 
-    const galleryImages = [
-        {
-            id: 1,
-            src: 'https://plus.unsplash.com/premium_photo-1681122469507-2d5ad7656217?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGFja2FnZXxlbnwwfHwwfHx8MA%3D%3D',
-            title: 'Premium Rigid Box',
-            description: 'Luxury rigid box with gold foiling and embossing',
-            category: 'Rigid Boxes'
-        },
-        {
-            id: 2,
-            src: 'https://plus.unsplash.com/premium_photo-1681122469507-2d5ad7656217?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGFja2FnZXxlbnwwfHwwfHx8MA%3D%3D',
-            title: 'Food Packaging',
-            description: 'Food-grade packaging with custom printing',
-            category: 'Food Packaging'
-        },
-        {
-            id: 3,
-            src: 'https://plus.unsplash.com/premium_photo-1681122469507-2d5ad7656217?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGFja2FnZXxlbnwwfHwwfHx8MA%3D%3D',
-            title: 'Gift Box Set',
-            description: 'Custom gift box set with magnetic closure',
-            category: 'Gift Boxes'
-        },
-        {
-            id: 4,
-            src: 'https://plus.unsplash.com/premium_photo-1681122469507-2d5ad7656217?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGFja2FnZXxlbnwwfHwwfHx8MA%3D%3D',
-            title: 'Printed Packaging',
-            description: 'Full-color printed packaging with spot UV',
-            category: 'Printed Packaging'
-        },
-        // Add more gallery items as needed
-    ];
+    // const galleryImages = [
+    //     {
+    //         id: 1,
+    //         src: 'https://plus.unsplash.com/premium_photo-1681122469507-2d5ad7656217?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGFja2FnZXxlbnwwfHwwfHx8MA%3D%3D',
+    //         title: 'Premium Rigid Box',
+    //         description: 'Luxury rigid box with gold foiling and embossing',
+    //         category: 'Rigid Boxes'
+    //     },
+    //     {
+    //         id: 2,
+    //         src: 'https://plus.unsplash.com/premium_photo-1681122469507-2d5ad7656217?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGFja2FnZXxlbnwwfHwwfHx8MA%3D%3D',
+    //         title: 'Food Packaging',
+    //         description: 'Food-grade packaging with custom printing',
+    //         category: 'Food Packaging'
+    //     },
+    //     {
+    //         id: 3,
+    //         src: 'https://plus.unsplash.com/premium_photo-1681122469507-2d5ad7656217?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGFja2FnZXxlbnwwfHwwfHx8MA%3D%3D',
+    //         title: 'Gift Box Set',
+    //         description: 'Custom gift box set with magnetic closure',
+    //         category: 'Gift Boxes'
+    //     },
+    //     {
+    //         id: 4,
+    //         src: 'https://plus.unsplash.com/premium_photo-1681122469507-2d5ad7656217?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGFja2FnZXxlbnwwfHwwfHx8MA%3D%3D',
+    //         title: 'Printed Packaging',
+    //         description: 'Full-color printed packaging with spot UV',
+    //         category: 'Printed Packaging'
+    //     },
+    //     // Add more gallery items as needed
+    // ];
 
-    const Modal = ({ image, onClose }) => (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
-            onClick={onClose}
-        >
-            <motion.div
-                initial={{ scale: 0.5 }}
-                animate={{ scale: 1 }}
-                exit={{ scale: 0.5 }}
-                className="bg-white rounded-xl overflow-hidden max-w-4xl w-full"
-                onClick={e => e.stopPropagation()}
-            >
-                <div className="relative">
-                    <img
-                        src={image.src}
-                        alt={image.title}
-                        className="w-full h-[60vh] object-cover"
-                    />
-                    <button
-                        onClick={onClose}
-                        className="absolute top-4 right-4 bg-white/80 p-2 rounded-full hover:bg-white transition-colors"
-                    >
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
-                <div className="p-6">
-                    <h3 className="text-2xl font-bold text-[#22201E] mb-2">{image.title}</h3>
-                    <p className="text-gray-600">{image.description}</p>
-                    <span className="inline-block mt-4 px-3 py-1 bg-[#E31F25]/10 text-[#E31F25] rounded-full text-sm">
-                        {image.category}
-                    </span>
-                </div>
-            </motion.div>
-        </motion.div>
-    );
+    // const Modal = ({ image, onClose }) => (
+    //     <motion.div
+    //         initial={{ opacity: 0 }}
+    //         animate={{ opacity: 1 }}
+    //         exit={{ opacity: 0 }}
+    //         className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+    //         onClick={onClose}
+    //     >
+    //         <motion.div
+    //             initial={{ scale: 0.5 }}
+    //             animate={{ scale: 1 }}
+    //             exit={{ scale: 0.5 }}
+    //             className="bg-white rounded-xl overflow-hidden max-w-4xl w-full"
+    //             onClick={e => e.stopPropagation()}
+    //         >
+    //             <div className="relative">
+    //                 <img
+    //                     src={image.src}
+    //                     alt={image.title}
+    //                     className="w-full h-[60vh] object-cover"
+    //                 />
+    //                 <button
+    //                     onClick={onClose}
+    //                     className="absolute top-4 right-4 bg-white/80 p-2 rounded-full hover:bg-white transition-colors"
+    //                 >
+    //                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    //                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+    //                     </svg>
+    //                 </button>
+    //             </div>
+    //             <div className="p-6">
+    //                 <h3 className="text-2xl font-bold text-[#22201E] mb-2">{image.title}</h3>
+    //                 <p className="text-gray-600">{image.description}</p>
+    //                 <span className="inline-block mt-4 px-3 py-1 bg-[#E31F25]/10 text-[#E31F25] rounded-full text-sm">
+    //                     {image.category}
+    //                 </span>
+    //             </div>
+    //         </motion.div>
+    //     </motion.div>
+    // );
 
     return (
         <div className="pt-24">
@@ -323,7 +323,7 @@ const Customization = () => {
             </div>
 
             {/* Updated Gallery Section */}
-            <div className="py-20 bg-gray-50">
+            {/* <div className="py-20 bg-gray-50">
                 <div className="container mx-auto px-4">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -378,10 +378,10 @@ const Customization = () => {
                         ))}
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             {/* Image Modal */}
-            <AnimatePresence>
+            {/* <AnimatePresence>
                 {isModalOpen && selectedImage && (
                     <Modal
                         image={selectedImage}
@@ -391,7 +391,7 @@ const Customization = () => {
                         }}
                     />
                 )}
-            </AnimatePresence>
+            </AnimatePresence> */}
 
             {/* File Upload Section with Error Message */}
             <div className="py-20 bg-gray-50">
