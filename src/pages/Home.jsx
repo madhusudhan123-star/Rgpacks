@@ -4,7 +4,7 @@ import '../styles/fonts.css'
 import { motion } from 'framer-motion'; // Add this import
 import one from '../assets/home/one.jpg'
 import two from '../assets/home/two.jpg'
-import three from '../assets/home/three.jpg'
+import three from '../assets/home/five.jpg'
 import four from '../assets/home/four.jpg'
 import whyone from '../assets/home/whyone.jpg'
 import whytwo from '../assets/home/whytwo.jpg'
@@ -106,12 +106,12 @@ function Home() {
       title: "Durable Solutions",
       description: "Say goodbye to shipping worries! Our durable cardboard boxes."
     },
-    {
-      id: 4,
-      icon: whythree, // Replace with your actual icon path
-      title: "Expert box manufacturers",
-      description: "Luxury, retail, food, electronics—whatever your business needs."
-    }
+    // {
+    //   id: 4,
+    //   icon: whythree, // Replace with your actual icon path
+    //   title: "Expert box manufacturers",
+    //   description: "Luxury, retail, food, electronics—whatever your business needs."
+    // }
   ];
 
   const benefits = [
@@ -340,7 +340,7 @@ function Home() {
           <img src={designtwo} className='absolute hidden md:block top-0' />
           <img src={designtwo} className='absolute hidden md:block top-0 rotate-45 right-0' />
         </motion.div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {features.map((feature) => (
             <motion.div
               key={feature.id}
@@ -562,7 +562,11 @@ function Home() {
                   whileHover={cardHoverVariants.hover}
                   className="bg-white p-6 rounded-xl relative z-10 shadow-lg border-l-4 border-[#D1A76D]"
                 >
-                  <div className="text-3xl mb-4 ">📞</div>
+                  <div className="text-3xl mb-4 ">
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </div>
                   <h3 className="text-xl font-semibold mb-2">Phone</h3>
                   <p className="text-gray-600">+91 98660 06169</p>
                 </motion.div>
@@ -572,7 +576,11 @@ function Home() {
                   whileHover={cardHoverVariants.hover}
                   className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#D1A76D]"
                 >
-                  <div className="text-3xl mb-4">✉️</div>
+                  <div className="text-3xl mb-4">
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
                   <h3 className="text-xl font-semibold mb-2">Email</h3>
                   <p className="text-gray-600">info@rgpack.in</p>
                 </motion.div>
@@ -582,7 +590,11 @@ function Home() {
                   whileHover={cardHoverVariants.hover}
                   className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#D1A76D]"
                 >
-                  <div className="text-3xl mb-4">📍</div>
+                  <div className="text-3xl mb-4">
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
                   <h3 className="text-xl font-semibold mb-2">Visit Us</h3>
                   <p className="text-gray-600">
                     Plot D-4 and D-5, IDA, Gandhi Nagar Industrial Area, Kukatpally, Hyderabad, Telangana 500037

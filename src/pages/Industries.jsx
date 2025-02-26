@@ -169,12 +169,13 @@ function Industries() {
                 </div>
 
                 {/* Content Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent flex flex-col justify-end p-4 md:p-6">
+                {/* bg-gradient-to-t from-black/90 via-black/60 to-transparent */}
+                <div className="absolute inset-0  flex flex-col justify-end p-4 md:p-6">
                   <div className="text-2xl md:text-3xl mb-2">
                     <div className="w-8 h-8 md:w-12 md:h-12">{industry.icon}</div>
                   </div>
-                  <h3 className="text-white text-lg md:text-xl font-bold mb-2">{industry.title}</h3>
-                  <p className="text-gray-300 text-xs md:text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <h3 className="text-black text-lg md:text-xl font-bold mb-2">{industry.title}</h3>
+                  <p className="text-black text-xs md:text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {industry.description}
                   </p>
                 </div>

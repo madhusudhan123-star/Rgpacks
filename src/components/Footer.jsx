@@ -18,7 +18,7 @@ function Footer() {
   const quickLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
-    { name: 'Our Service', path: '/services' },
+    { name: 'Our Services', path: '/services' },
     { name: 'Industries We Serve', path: '/industries' },
     { name: 'Customization', path: '/customization' },
     { name: 'Contact', path: '/contact' }
@@ -117,7 +117,7 @@ function Footer() {
                 <img src={logoimg} alt="RG Pack Logo" className="w-full h-auto" />
               </div>
             </Link>
-            <h2 className="text-2xl font-bold text-white">RG PACKS</h2>
+            <h2 className="text-2xl font-bold text-white">RG PACK</h2>
             <p className="text-sm">
               From design to delivery, we offer end-to-end packaging services that help your products
               stand out in the market while ensuring their protection throughout the supply chain.
@@ -237,7 +237,7 @@ function Footer() {
               © {new Date().getFullYear()} RG Pack. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              {['Privacy Policy', 'Terms of Service'].map((item, index) => (
+              {['Privacy'].map((item, index) => (
                 <motion.div
                   key={index}
                   whileHover={{ y: -2 }}

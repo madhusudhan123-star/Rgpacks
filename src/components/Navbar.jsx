@@ -39,7 +39,7 @@ function Navbar() {
               <li><Link to="/" className="text-[#22201E] hover:text-[#E31F25]">Home</Link></li>
               <li><Link to="/about" className="text-[#22201E] hover:text-[#E31F25]">About</Link></li>
 
-              <li><Link to="/services" className="text-[#22201E] hover:text-[#E31F25]">Our Service</Link></li>
+              <li><Link to="/services" className="text-[#22201E] hover:text-[#E31F25]">Our Services</Link></li>
               <li><Link to="/industries" className="text-[#22201E] hover:text-[#E31F25]">Industries We Serve</Link></li>
 
               <li><Link to="/customization" className="text-[#22201E] hover:text-[#E31F25]">Customization</Link></li>

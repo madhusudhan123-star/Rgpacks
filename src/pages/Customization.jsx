@@ -1,6 +1,11 @@
 import { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
-import banner from '../assets/home/four.jpg'
+import { motion, AnimatePresence } from 'framer-motion';
+import banner from '../assets/industries/card9.jpg'; // Update with correct path
+import card1 from '../assets/customization/card1.jpg'
+import card2 from '../assets/customization/card2.jpg'
+import card3 from '../assets/customization/card3.jpg'
+import card4 from '../assets/customization/card4.jpg'
+
 const Customization = () => {
     const queryFormRef = useRef(null);
     const [formData, setFormData] = useState({
@@ -53,22 +58,22 @@ const Customization = () => {
     const customizationExamples = [
         {
             title: "Rigid Box Design",
-            image: "https://plus.unsplash.com/premium_photo-1681122469507-2d5ad7656217?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGFja2FnZXxlbnwwfHwwfHx8MA%3D%3D", // Replace with actual image path
+            image: card1, // Replace with actual image path
             description: "Premium rigid boxes with custom finishing"
         },
         {
             title: "Printed Packaging",
-            image: "https://plus.unsplash.com/premium_photo-1681122469507-2d5ad7656217?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGFja2FnZXxlbnwwfHwwfHx8MA%3D%3D", // Replace with actual image path
+            image: card2, // Replace with actual image path
             description: "High-quality offset printed designs"
         },
         {
             title: "Food Packaging",
-            image: "https://plus.unsplash.com/premium_photo-1681122469507-2d5ad7656217?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGFja2FnZXxlbnwwfHwwfHx8MA%3D%3D", // Replace with actual image path
+            image: card3, // Replace with actual image path
             description: "Food-grade custom packaging solutions"
         },
         {
             title: "Gift Boxes",
-            image: "https://plus.unsplash.com/premium_photo-1681122469507-2d5ad7656217?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGFja2FnZXxlbnwwfHwwfHx8MA%3D%3D", // Replace with actual image path
+            image: card4, // Replace with actual image path
             description: "Luxury gift packaging designs"
         }
     ];
@@ -153,17 +158,53 @@ const Customization = () => {
         }
     };
 
+    const handleImageError = (e) => {
+        e.target.src = '/images/placeholder.jpg'; // Add a fallback image
+        e.target.alt = 'Image failed to load';
+    };
+
+    // Add proper aria-labels and role attributes to interactive elements
+    const uploadSection = (
+        <div
+            role="button"
+            tabIndex={0}
+            aria-label="File upload area"
+            onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    document.querySelector('input[type="file"]').click();
+                }
+            }}
+        // ...existing attributes...
+        >
+            {/* ...existing content... */}
+        </div>
+    );
+
+    // Add proper error boundaries
+    const ImageComponent = ({ src, alt, className }) => {
+        return (
+            <img
+                src={src}
+                alt={alt}
+                className={className}
+                onError={handleImageError}
+                loading="lazy"
+            />
+        );
+    };
+
     return (
-        <div className="pt-16 md:pt-24">
+        <div className="pt-24">
             {/* Hero Section */}
-            <div className="relative min-h-[40vh] md:h-[50vh] bg-[#E4272D] overflow-hidden">
-                <div className="container mx-auto px-4 h-full flex flex-col lg:flex-row items-center py-8">
-                    <div className="w-full lg:w-1/2 text-white mb-6 lg:mb-0">
+            <div className="relative h-[50vh] bg-[#E4272D] overflow-hidden">
+                {/* <div className="absolute inset-0 bg-black/40"></div> */}
+                <div className="container mx-auto px-4 h-full flex flex-col lg:flex-row items-center relative z-10 py-8">
+                    <div className="max-w-3xl text-white">
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
-                            className="text-3xl md:text-5xl font-bold mb-4"
+                            className="text-5xl font-bold mb-6"
                         >
                             Your Idea, Our Packing – A Perfect Match!
                         </motion.h1>
@@ -171,75 +212,195 @@ const Customization = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                            className="text-base md:text-xl leading-relaxed"
+                            className="text-xl leading-relaxed"
                         >
                             Upload your custom design, and let RG Pack transform it into high-quality, durable packaging that stands out!
                         </motion.p>
                     </div>
-                    <div className="w-full lg:w-1/2">
-                        <img src={banner} className='rounded-sm w-full h-auto' alt="RG Packs Banner" />
+                    <div className="lg:w-1/2">
+                        <ImageComponent
+                            src={banner}
+                            className='rounded-sm w-full'
+                            alt="RG Packs Banner"
+                        />
                     </div>
                 </div>
             </div>
 
-            {/* Process Steps */}
-            <div className="py-12 md:py-20 bg-white">
+            {/* Add Examples Section after Hero */}
+            <div className="py-20 bg-white">
                 <div className="container mx-auto px-4">
                     <motion.h2
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        className="text-2xl md:text-4xl font-bold text-[#22201E] text-center mb-4"
+                        className="text-4xl font-bold text-[#22201E] text-center mb-4"
                     >
-                        Simple & Seamless Process
+                        Customization Examples
                     </motion.h2>
-                    <div className="w-16 md:w-24 h-1 bg-[#E31F25] mx-auto mb-8 md:mb-12"></div>
+                    <div className="w-24 h-1 bg-[#E31F25] mx-auto mb-12"></div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
-                        {steps.map((step, index) => (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {customizationExamples.map((example, index) => (
                             <motion.div
-                                key={step.number}
+                                key={index}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="text-center p-4 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                                className="group relative overflow-hidden rounded-xl shadow-lg"
                             >
-                                <div className="mb-4 text-[#22201E]">
-                                    <div className="w-8 h-8 md:w-12 md:h-12 mx-auto">{step.icon}</div>
+                                <div className="h-64 overflow-hidden">
+                                    <img
+                                        src={example.image}
+                                        alt={example.title}
+                                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                                    />
                                 </div>
-                                <div className="text-xl md:text-2xl font-bold text-[#22201E] mb-2">Step {step.number}</div>
-                                <h3 className="text-lg md:text-xl font-semibold text-[#D1A76D] mb-2 md:mb-3">{step.title}</h3>
-                                <p className="text-sm md:text-base text-gray-600">{step.description}</p>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                                    <h3 className="text-white text-xl font-bold mb-2">{example.title}</h3>
+                                    <p className="text-gray-200 text-sm">{example.description}</p>
+                                </div>
                             </motion.div>
                         ))}
                     </div>
                 </div>
             </div>
 
-            {/* File Upload Section */}
-            <div className="py-12 md:py-20 bg-gray-50">
+            {/* Process Steps */}
+            <div className="py-20 bg-white">
+                <div className="container mx-auto px-4">
+                    <motion.h2
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        className="text-4xl font-bold text-[#22201E] text-center mb-4"
+                    >
+                        Simple & Seamless Process
+                    </motion.h2>
+                    <div className="w-24 h-1 bg-[#E31F25] mx-auto mb-12"></div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {steps.map((step, index) => (
+                            <motion.div
+                                key={step.number}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                className="text-center p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                            >
+                                <div className="mb-4 text-[#22201E]">{step.icon}</div>
+                                <div className="text-2xl font-bold text-[#22201E] mb-2">Step {step.number}</div>
+                                <h3 className="text-xl font-semibold text-[#D1A76D] mb-3">{step.title}</h3>
+                                <p className="text-gray-600">{step.description}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* Updated Gallery Section */}
+            {/* <div className="py-20 bg-gray-50">
+                <div className="container mx-auto px-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="text-center mb-12"
+                    >
+                        <h2 className="text-4xl font-bold text-[#22201E] mb-4">Our Recent Customizations</h2>
+                        <div className="w-24 h-1 bg-[#E31F25] mx-auto mb-6"></div>
+                        <p className="text-gray-600 max-w-2xl mx-auto">
+                            Browse through our recent custom packaging projects for inspiration.
+                            Click on any image to view details and specifications.
+                        </p>
+                    </motion.div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        {galleryImages.map((image, index) => (
+                            <motion.div
+                                key={image.id}
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                className="group relative overflow-hidden rounded-xl bg-white shadow-lg"
+                            >
+                                <div className="aspect-square overflow-hidden">
+                                    <motion.img
+                                        src={image.src}
+                                        alt={image.title}
+                                        loading="lazy"
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        whileHover={{ scale: 1.1 }}
+                                        onError={(e) => {
+                                            e.target.src = '/images/placeholder.jpg';
+                                        }}
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                            <h3 className="text-lg font-semibold mb-1">{image.title}</h3>
+                                            <p className="text-sm text-gray-200">{image.category}</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        onClick={() => {
+                                            setSelectedImage(image);
+                                            setIsModalOpen(true);
+                                        }}
+                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/90 text-[#22201E] px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white"
+                                    >
+                                        View Details
+                                    </button>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </div> */}
+
+            {/* Image Modal */}
+            {/* <AnimatePresence>
+                {isModalOpen && selectedImage && (
+                    <Modal
+                        image={selectedImage}
+                        onClose={() => {
+                            setIsModalOpen(false);
+                            setSelectedImage(null);
+                        }}
+                    />
+                )}
+            </AnimatePresence> */}
+
+            {/* File Upload Section with Error Message */}
+            <div className="py-20 bg-gray-50">
                 <div className="container mx-auto px-4">
                     <div className="max-w-3xl mx-auto">
                         <motion.div
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
-                            className={`border-2 border-dashed rounded-xl p-4 md:p-10 text-center cursor-pointer transition-colors
+                            className={`border-2 border-dashed rounded-xl p-10 text-center cursor-pointer transition-colors
                                 ${isDragging ? 'border-[#E31F25] bg-[#E31F25]/10' : 'border-gray-300 hover:border-[#D1A76D]'}
                                 ${fileError ? 'border-red-500' : ''}`}
                             onDragOver={handleDragOver}
                             onDragLeave={handleDragLeave}
                             onDrop={handleDrop}
+                            role="button"
+                            aria-label="File upload area"
                         >
-                            <div className="text-3xl md:text-4xl mb-4">📁</div>
-                            <h3 className="text-lg md:text-xl font-bold text-[#22201E] mb-2">
+                            <div className="text-4xl mb-4">📁</div>
+                            <h3 className="text-xl font-bold text-[#22201E] mb-2">
                                 {file ? file.name : 'Drag and drop your design file here'}
                             </h3>
-                            <p className="text-sm md:text-base text-gray-600 mb-4">or</p>
-                            <label className="inline-block bg-[#E31F25] hover:bg-[#D1A76D] text-white px-4 md:px-6 py-2 md:py-3 rounded-lg cursor-pointer transition-colors text-sm md:text-base">
+                            <p className="text-gray-600 mb-4">or</p>
+                            <label className="bg-[#E31F25] hover:bg-[#D1A76D] text-white px-6 py-3 rounded-lg cursor-pointer transition-colors">
                                 Browse Files
-                                <input type="file" className="hidden" onChange={handleFileChange} accept=".ai,.psd,.pdf,.jpg,.png" />
+                                <input
+                                    type="file"
+                                    className="hidden"
+                                    onChange={handleFileChange}
+                                    accept=".ai,.psd,.pdf,.jpg,.png"
+                                />
                             </label>
-                            {fileError && <p className="text-red-500 mt-2 text-sm md:text-base">{fileError}</p>}
-                            <p className="text-xs md:text-sm text-gray-500 mt-2">
+                            {fileError && (
+                                <p className="text-red-500 mt-2">{fileError}</p>
+                            )}
+                            <p className="text-sm text-gray-500 mt-2">
                                 Supported formats: {allowedFileTypes.join(', ')} (Max 50MB)
                             </p>
                         </motion.div>
@@ -248,43 +409,60 @@ const Customization = () => {
             </div>
 
             {/* Contact Info */}
-            <div className="py-12 md:py-20 bg-white">
+            <div className="py-20 bg-white">
                 <div className="container mx-auto px-4 text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="space-y-3 md:space-y-4"
+                        className="space-y-4"
                     >
-                        <p className="text-base md:text-xl">Need help? Call us at <span className="text-[#E31F25] font-semibold">+91 98660 06169</span></p>
-                        <p className="text-base md:text-xl">Visit us at <span className="text-[#D1A76D]">Kukatpally, Hyderabad, Telangana</span></p>
+                        <p className="text-xl">Need help? Call us at <span className="text-[#E31F25] font-semibold">+91 98660 06169</span></p>
+                        <p className="text-xl">Visit us at <span className="text-[#D1A76D]">Kukatpally, Hyderabad, Telangana</span></p>
                     </motion.div>
                 </div>
             </div>
 
-            {/* Query Form */}
-            <div className="py-12 md:py-20 bg-gray-50" ref={queryFormRef}>
+            {/* Enhanced Query Form */}
+            <div className="py-20 bg-gray-50" ref={queryFormRef}>
                 <div className="container mx-auto px-4">
                     <div className="max-w-3xl mx-auto">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            className="text-center mb-8 md:mb-12"
+                            className="text-center mb-12"
                         >
-                            <h2 className="text-2xl md:text-4xl font-bold text-[#22201E] mb-4">Unbox the answers you need!</h2>
-                            <div className="w-16 md:w-24 h-1 bg-[#E31F25] mx-auto mb-4 md:mb-6"></div>
-                            <p className="text-sm md:text-base text-gray-600">
+                            <h2 className="text-4xl font-bold text-[#22201E] mb-4">Unbox the answers you need!</h2>
+                            <div className="w-24 h-1 bg-[#E31F25] mx-auto mb-6"></div>
+                            <p className="text-gray-600">
                                 Just drop your query in the box below, and our experts will get back to you with everything you need.
+                                Let's create packaging that speaks for your brand!
                             </p>
                         </motion.div>
 
                         <motion.form
-                            onSubmit={handleSubmit}
+                            onSubmit={async (e) => {
+                                e.preventDefault();
+                                if (!validateForm()) return;
+
+                                setIsSubmitting(true);
+                                try {
+                                    // Add your form submission logic here
+                                    await new Promise(resolve => setTimeout(resolve, 1000));
+                                    setFormData({ name: '', email: '', phone: '', query: '' });
+                                    alert('Query submitted successfully!');
+                                } catch (error) {
+                                    console.error('Form submission error:', error);
+                                    alert('Failed to submit query. Please try again.');
+                                } finally {
+                                    setIsSubmitting(false);
+                                }
+                            }}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            className="bg-white p-4 md:p-8 rounded-xl shadow-lg"
+                            className="bg-white p-8 rounded-xl shadow-lg"
                         >
-                            {/* Form fields with responsive classes */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                {/* Form fields similar to Contact page */}
                                 <div>
                                     <label className="block text-gray-700 mb-2" htmlFor="name">Name</label>
                                     <input
@@ -326,9 +504,10 @@ const Customization = () => {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className={`w-full py-2 md:py-3 px-4 md:px-6 rounded-lg transition-colors text-sm md:text-base font-semibold
-                                    ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#E31F25] hover:bg-[#D1A76D]'} 
-                                    text-white`}
+                                className={`w-full py-3 px-6 rounded-lg transition-colors ${isSubmitting
+                                    ? 'bg-gray-400 cursor-not-allowed'
+                                    : 'bg-[#E31F25] hover:bg-[#D1A76D]'
+                                    } text-white`}
                             >
                                 {isSubmitting ? 'Submitting...' : 'Submit Query'}
                             </button>
