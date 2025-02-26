@@ -35,7 +35,7 @@ function Navbar() {
             </Link>
 
             {/* Desktop Menu */}
-            <ul className="hidden lg:flex space-x-8">
+            <ul className="hidden text-lg lg:flex space-x-8">
               <li><Link to="/" className="text-[#22201E] hover:text-[#E31F25]">Home</Link></li>
               <li><Link to="/about" className="text-[#22201E] hover:text-[#E31F25]">About</Link></li>
 

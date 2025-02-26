@@ -384,7 +384,7 @@ function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className={` py-8 md:py-16 ${index !== sections.length - 1 ? 'border-b border-[#D1A76D]' : ''
+            className={` py-8 md:pt-16 ${index !== sections.length - 1 ? 'border-b border-[#D1A76D]' : ''
               }`}
           >
             <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
@@ -444,7 +444,7 @@ function Home() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="py-12 md:py-24 px-4 md:px-0"
+        className="py-12 md:pt-24 px-4 md:px-0"
       >
         <div className="">
           <div className="text-center mb-12">
@@ -482,7 +482,7 @@ function Home() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="py-8 md:py-24"
+          className="py-8"
         >
           <div className="">
             <div className="text-center mb-12">
