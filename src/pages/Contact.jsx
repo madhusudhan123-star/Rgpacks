@@ -30,7 +30,7 @@ function Contact() {
         </svg>
       ),
       title: "Call Us",
-      details: ["+91 98660 06169", "+91 98660 06169"],
+      details: ["+91 98660 06169"],
       color: "border-[#E31F25]",
       type: "phone"
     },
@@ -41,7 +41,7 @@ function Contact() {
         </svg>
       ),
       title: "Email Us",
-      details: ["info@rgpack.in", "sales@rgpack.in"],
+      details: ["info@rgpack.in"],
       color: "border-[#D1A76D]",
       type: "email"
     },
@@ -65,52 +65,55 @@ function Contact() {
   };
 
   return (
-    <div className="pt-24">
+    <div className="pt-16 md:pt-24">
       {/* Hero Section */}
-      <div className="relative h-[40vh] bg-[#E4272D] overflow-hidden">
-        {/* <div className="absolute inset-0 bg-black/50"></div> */}
-        <div className="container mx-auto px-4 h-full flex flex-col lg:flex-row items-center relative z-10 py-8">
-          <div className="max-w-3xl text-white">
-            <h1 className="text-5xl font-bold mb-6">Get in Touch</h1>
-            <p className="text-xl leading-relaxed">
+      <div className="relative min-h-[30vh] md:h-[40vh] bg-[#E4272D] overflow-hidden">
+        <div className="container mx-auto px-4 h-full flex flex-col lg:flex-row items-center py-8">
+          <div className="w-full lg:w-1/2 text-white mb-6 lg:mb-0">
+            <h1 className="text-3xl md:text-5xl font-bold mb-4">Get in Touch</h1>
+            <p className="text-base md:text-xl leading-relaxed">
               Have questions about our packaging solutions? We're here to help and ready to serve your needs.
             </p>
           </div>
-          <div className="lg:w-1/2">
-            <img src={banner} className='rounded-sm w-full' alt="RG Packs Banner" />
+          <div className="w-full lg:w-1/2">
+            <img src={banner} className='rounded-sm w-full h-auto' alt="RG Packs Banner" />
           </div>
         </div>
       </div>
 
       {/* Contact Information Cards */}
-      <div className="py-16 bg-white">
+      <div className="py-8 md:py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
             {contactInfo.map((info, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`p-8 rounded-xl shadow-lg border-l-4 ${info.color} bg-white`}
+                className={`p-4 md:p-8 rounded-xl shadow-lg border-l-4 ${info.color} bg-white`}
               >
-                <div className="mb-4 text-[#22201E]">{info.icon}</div>
-                <h3 className="text-xl font-bold text-[#22201E] mb-4">{info.title}</h3>
-                {info.details.map((detail, i) => (
-                  <p
-                    key={i}
-                    onClick={() => ['phone', 'email'].includes(info.type) && handleCopy(detail, `${info.type}-${i}`)}
-                    className={`text-gray-600 ${['phone', 'email'].includes(info.type) ? 'cursor-pointer hover:text-[#E31F25] relative' : ''}`}
-                    title={['phone', 'email'].includes(info.type) ? 'Click to copy' : ''}
-                  >
-                    {detail}
-                    {copied === `${info.type}-${i}` && (
-                      <span className="absolute -top-8 left-0 bg-green-500 text-white text-xs py-1 px-2 rounded">
-                        Copied!
-                      </span>
-                    )}
-                  </p>
-                ))}
+                <div className="mb-4 text-[#22201E]">
+                  <div className="w-8 h-8 md:w-12 md:h-12">{info.icon}</div>
+                </div>
+                <h3 className="text-lg md:text-xl font-bold text-[#22201E] mb-4">{info.title}</h3>
+                <div className="space-y-1">
+                  {info.details.map((detail, i) => (
+                    <p
+                      key={i}
+                      onClick={() => ['phone', 'email'].includes(info.type) && handleCopy(detail, `${info.type}-${i}`)}
+                      className={`text-sm md:text-base text-gray-600 ${['phone', 'email'].includes(info.type) ? 'cursor-pointer hover:text-[#E31F25] relative' : ''}`}
+                      title={['phone', 'email'].includes(info.type) ? 'Click to copy' : ''}
+                    >
+                      {detail}
+                      {copied === `${info.type}-${i}` && (
+                        <span className="absolute -top-8 left-0 bg-green-500 text-white text-xs py-1 px-2 rounded">
+                          Copied!
+                        </span>
+                      )}
+                    </p>
+                  ))}
+                </div>
               </motion.div>
             ))}
           </div>
@@ -118,74 +121,74 @@ function Contact() {
       </div>
 
       {/* Contact Form Section */}
-      <div className="py-16 bg-gray-50">
+      <div className="py-8 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-[#22201E] mb-4">Send Us a Message</h2>
-              <div className="w-24 h-1 bg-[#E31F25] mx-auto mb-6"></div>
-              <p className="text-gray-600">
+            <div className="text-center mb-8 md:mb-12">
+              <h2 className="text-2xl md:text-4xl font-bold text-[#22201E] mb-4">Send Us a Message</h2>
+              <div className="w-16 md:w-24 h-1 bg-[#E31F25] mx-auto mb-4 md:mb-6"></div>
+              <p className="text-sm md:text-base text-gray-600">
                 Fill out the form below and we'll get back to you as soon as possible.
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <form onSubmit={handleSubmit} className="bg-white p-4 md:p-8 rounded-xl shadow-lg">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
                 <div>
-                  <label className="block text-gray-700 mb-2">Name</label>
+                  <label className="block text-gray-700 text-sm md:text-base mb-2">Name</label>
                   <input
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E31F25] focus:border-transparent"
+                    className="w-full px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E31F25] focus:border-transparent"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-700 mb-2">Email</label>
+                  <label className="block text-gray-700 text-sm md:text-base mb-2">Email</label>
                   <input
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E31F25] focus:border-transparent"
+                    className="w-full px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E31F25] focus:border-transparent"
                     required
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
                 <div>
-                  <label className="block text-gray-700 mb-2">Phone</label>
+                  <label className="block text-gray-700 text-sm md:text-base mb-2">Phone</label>
                   <input
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E31F25] focus:border-transparent"
+                    className="w-full px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E31F25] focus:border-transparent"
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-700 mb-2">Subject</label>
+                  <label className="block text-gray-700 text-sm md:text-base mb-2">Subject</label>
                   <input
                     type="text"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E31F25] focus:border-transparent"
+                    className="w-full px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E31F25] focus:border-transparent"
                     required
                   />
                 </div>
               </div>
-              <div className="mb-6">
-                <label className="block text-gray-700 mb-2">Message</label>
+              <div className="mb-4 md:mb-6">
+                <label className="block text-gray-700 text-sm md:text-base mb-2">Message</label>
                 <textarea
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows="6"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E31F25] focus:border-transparent"
+                  className="w-full px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E31F25] focus:border-transparent"
                   required
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="w-full bg-[#E31F25] hover:bg-[#D1A76D] text-white py-3 px-6 rounded-lg transition-colors"
+                className="w-full bg-[#E31F25] hover:bg-[#D1A76D] text-white py-2 md:py-3 px-4 md:px-6 rounded-lg transition-colors text-sm md:text-base font-semibold"
               >
                 Send Message
               </button>
@@ -195,7 +198,7 @@ function Contact() {
       </div>
 
       {/* Map Section */}
-      <div className="h-[400px] w-full">
+      <div className="h-[300px] md:h-[400px] w-full">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.9385772641825!2d78.4312!3d17.4937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI5JzM3LjMiTiA3OMKwMjUnNTIuMyJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
           width="100%"

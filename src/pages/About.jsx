@@ -49,35 +49,35 @@ function About() {
   ];
 
   return (
-    <div className="pt-24">
+    <div className="pt-16 md:pt-24">
       {/* Hero Section - Updated with legacy mention */}
-      <div className="relative h-[60vh] bg-[#E4272D]  overflow-hidden">
+      <div className="relative min-h-[60vh] bg-[#E4272D] overflow-hidden">
         <div className="absolute inset-0 bg-black/30"></div>
-          <div className="container mx-auto px-4 h-full flex flex-col lg:flex-row items-center relative z-10 py-8">
-            <div className="max-w-3xl text-white lg:w-1/2 mb-8 lg:mb-0">
-              <motion.span
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="inline-block bg-[#D1A76D] text-white px-4 py-2 rounded-full mb-4"
-              >
-                30+ Years of Excellence
-              </motion.span>
-              <h1 className="text-3xl lg:text-5xl font-bold mb-6">Packaging Solutions That Speak for Your Brand</h1>
-              <p className="text-lg lg:text-xl leading-relaxed">
-                At RG Packs, we don't just create boxes—we create experiences. Established in 2004, we have been
-                delivering high-quality packaging and branding solutions for businesses across various industries. From
-                customized printed boxes to durable corrugated and cardboard packaging, we offer innovative designs
-                that protect and enhance your product presentation
-              </p>
-            </div>
-            <div className="lg:w-1/2">
-              <img src={banner} className='rounded-sm w-full' alt="RG Packs Banner" />
-            </div>
+        <div className="container mx-auto px-4 h-full flex flex-col lg:flex-row items-center relative z-10 py-8">
+          <div className="w-full max-w-3xl text-white lg:w-1/2 mb-8 lg:mb-0 space-y-4">
+            <motion.span
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-block bg-[#D1A76D] text-white px-3 py-1 md:px-4 md:py-2 rounded-full text-sm md:text-base"
+            >
+              30+ Years of Excellence
+            </motion.span>
+            <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold">Packaging Solutions That Speak for Your Brand</h1>
+            <p className="text-base md:text-lg lg:text-xl leading-relaxed">
+              At RG Packs, we don't just create boxes—we create experiences. Established in 2004, we have been
+              delivering high-quality packaging and branding solutions for businesses across various industries. From
+              customized printed boxes to durable corrugated and cardboard packaging, we offer innovative designs
+              that protect and enhance your product presentation
+            </p>
           </div>
-              </div>
+          <div className="w-full lg:w-1/2 px-4">
+            <img src={banner} className='rounded-sm w-full' alt="RG Packs Banner" />
+          </div>
+        </div>
+      </div>
 
-              {/* Legacy Section - New Addition */}
+      {/* Legacy Section - New Addition */}
       {/* <div className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
@@ -106,14 +106,14 @@ function About() {
       </div> */}
 
       {/* Vision & Mission Section */}
-      <div className="py-16 bg-white">
+      <div className="py-8 md:py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="p-8 rounded-xl border-l-4 border-[#E31F25]"
+              className="p-4 md:p-8 rounded-xl border-l-4 border-[#E31F25]"
             >
               <h2 className="text-2xl font-bold text-[#22201E] mb-4">Our Vision</h2>
               <p className="text-gray-600 text-lg">
@@ -124,7 +124,7 @@ function About() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="p-8 rounded-xl border-l-4 border-[#D1A76D]"
+              className="p-4 md:p-8 rounded-xl border-l-4 border-[#D1A76D]"
             >
               <h2 className="text-2xl font-bold text-[#22201E] mb-4">Our Mission</h2>
               <p className="text-gray-600 text-lg">
@@ -137,17 +137,17 @@ function About() {
       </div>
 
       {/* Stats Section */}
-      <div className="py-20 bg-white">
+      <div className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-center"
+              className="text-center p-2"
             >
-              <h2 className="text-[#E31F25] text-4xl font-bold mb-2">30+</h2>
-              <p className="text-[#22201E] text-lg">Years of Excellence</p>
+              <h2 className="text-[#E31F25] text-2xl md:text-4xl font-bold mb-2">30+</h2>
+              <p className="text-[#22201E] text-sm md:text-lg">Years of Excellence</p>
             </motion.div>
             {stats.slice(1).map((stat, index) => (
               <motion.div
@@ -155,10 +155,10 @@ function About() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: (index + 1) * 0.1 }}
-                className="text-center"
+                className="text-center p-2"
               >
-                <h2 className="text-[#E31F25] text-4xl font-bold mb-2">{stat.number}</h2>
-                <p className="text-[#22201E] text-lg">{stat.text}</p>
+                <h2 className="text-[#E31F25] text-2xl md:text-4xl font-bold mb-2">{stat.number}</h2>
+                <p className="text-[#22201E] text-sm md:text-lg">{stat.text}</p>
               </motion.div>
             ))}
           </div>
@@ -166,22 +166,22 @@ function About() {
       </div>
 
       {/* What Sets Us Apart Section */}
-      <div className="py-20 bg-gray-50">
+      <div className="py-12 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-[#22201E] text-center mb-6">What Sets Us Apart?</h2>
-          <div className="w-24 h-1 bg-[#E31F25] mx-auto mb-12"></div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#22201E] text-center mb-4 md:mb-6">What Sets Us Apart?</h2>
+          <div className="w-20 md:w-24 h-1 bg-[#E31F25] mx-auto mb-8 md:mb-12"></div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-6 rounded-xl shadow-lg border-b-2 border-[#D1A76D]"
+                className="bg-white p-4 md:p-6 rounded-xl shadow-lg border-b-2 border-[#D1A76D]"
               >
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-[#22201E] mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <div className="text-3xl md:text-4xl mb-3 md:mb-4">{feature.icon}</div>
+                <h3 className="text-lg md:text-xl font-semibold text-[#22201E] mb-2 md:mb-3">{feature.title}</h3>
+                <p className="text-gray-600 text-sm md:text-base">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -205,14 +205,14 @@ function About() {
       </div> */}
 
       {/* CTA Section */}
-      <div className="py-20 bg-[#E31F25] text-white relative">
+      <div className="py-12 md:py-20 bg-[#E31F25] text-white relative">
         <div className="absolute inset-0 bg-black/30"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-4xl font-bold mb-6">Ready to Get Started?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">Ready to Get Started?</h2>
+          <p className="text-base md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto">
             Let's work together to create packaging solutions that elevate your brand and protect your products.
           </p>
-          <button className="bg-[#D1A76D] hover:bg-[#D1A76D]/90 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors">
+          <button className="bg-[#D1A76D] hover:bg-[#D1A76D]/90 text-white px-6 md:px-8 py-2 md:py-3 rounded-lg text-base md:text-lg font-semibold transition-colors">
             <a href='/contact'>
               Contact Us Today
             </a>

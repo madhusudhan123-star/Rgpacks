@@ -117,17 +117,16 @@ function Industries() {
   ];
 
   return (
-    <div className="pt-24">
+    <div className="pt-16 md:pt-24">
       {/* Hero Section */}
-      <div className="relative h-[50vh] bg-[#E4272D] overflow-hidden">
-        {/* <div className="absolute inset-0 bg-black/40"></div> */}
-        <div className="container mx-auto px-4 h-full flex flex-col lg:flex-row items-center relative z-10 py-8">
-          <div className="max-w-3xl text-white">
+      <div className="relative min-h-[40vh] md:h-[50vh] bg-[#E4272D] overflow-hidden">
+        <div className="container mx-auto px-4 h-full flex flex-col lg:flex-row items-center py-8">
+          <div className="w-full lg:w-1/2 text-white mb-6 lg:mb-0">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-5xl font-bold mb-6"
+              className="text-3xl md:text-5xl font-bold mb-4"
             >
               Industries We Serve
             </motion.h1>
@@ -135,22 +134,22 @@ function Industries() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl leading-relaxed"
+              className="text-base md:text-xl leading-relaxed"
             >
               We provide high-quality, customized packaging solutions for multiple industries,
               ensuring unique designs and premium materials.
             </motion.p>
           </div>
-          <div className="lg:w-1/2">
-            <img src={banner} className='rounded-sm w-full' alt="RG Packs Banner" />
+          <div className="w-full lg:w-1/2">
+            <img src={banner} className='rounded-sm w-full h-auto' alt="RG Packs Banner" />
           </div>
         </div>
       </div>
 
       {/* Industries Grid */}
-      <div className="py-20 bg-white">
+      <div className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
             {industries.map((industry, index) => (
               <motion.div
                 key={index}
@@ -161,7 +160,7 @@ function Industries() {
                 className="group relative overflow-hidden rounded-xl shadow-lg"
               >
                 {/* Background Image */}
-                <div className="h-64 overflow-hidden">
+                <div className="h-48 md:h-64 overflow-hidden">
                   <img
                     src={industry.image}
                     alt={industry.title}
@@ -170,10 +169,12 @@ function Industries() {
                 </div>
 
                 {/* Content Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent flex flex-col justify-end p-6">
-                  <div className="text-3xl mb-2">{industry.icon}</div>
-                  <h3 className="text-white text-xl font-bold mb-2">{industry.title}</h3>
-                  <p className="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent flex flex-col justify-end p-4 md:p-6">
+                  <div className="text-2xl md:text-3xl mb-2">
+                    <div className="w-8 h-8 md:w-12 md:h-12">{industry.icon}</div>
+                  </div>
+                  <h3 className="text-white text-lg md:text-xl font-bold mb-2">{industry.title}</h3>
+                  <p className="text-gray-300 text-xs md:text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {industry.description}
                   </p>
                 </div>
@@ -184,20 +185,20 @@ function Industries() {
       </div>
 
       {/* CTA Section */}
-      <div className="py-20 bg-gray-50">
+      <div className="py-12 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             className="max-w-3xl mx-auto"
           >
-            <h2 className="text-4xl font-bold text-[#22201E] mb-6">
+            <h2 className="text-2xl md:text-4xl font-bold text-[#22201E] mb-4">
               Ready to Get Started?
             </h2>
-            <p className="text-gray-600 mb-8">
+            <p className="text-sm md:text-base text-gray-600 mb-6 md:mb-8">
               Let's create packaging solutions that perfectly match your industry requirements.
             </p>
-            <button className="bg-[#E31F25] hover:bg-[#D1A76D] text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors">
+            <button className="bg-[#E31F25] hover:bg-[#D1A76D] text-white px-6 md:px-8 py-2 md:py-3 rounded-lg text-sm md:text-lg font-semibold transition-colors">
               <a href='/contact'>
                 Contact Us Today
               </a>

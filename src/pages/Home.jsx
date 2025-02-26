@@ -102,13 +102,13 @@ function Home() {
     },
     {
       id: 3,
-      icon: whythree, // Replace with your actual icon path
+      icon: whyfour, // Replace with your actual icon path
       title: "Durable Solutions",
       description: "Say goodbye to shipping worries! Our durable cardboard boxes."
     },
     {
       id: 4,
-      icon: whyfour, // Replace with your actual icon path
+      icon: whythree, // Replace with your actual icon path
       title: "Expert box manufacturers",
       description: "Luxury, retail, food, electronics—whatever your business needs."
     }
@@ -217,7 +217,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="p-2 md:p-4">
+    <div className="p-2 md:p-4 overflow-x-hidden">
       {/* Hero Section with enhanced animations */}
       <div className="relative mt-28 md:px-12 min-h-[80vh]">
         <motion.div
@@ -228,7 +228,7 @@ function Home() {
         ></motion.div>
 
         <div className="relative px-4 md:px-16 flex flex-col lg:flex-row items-center">
-          <img src={designfour} className="absolute z-[5px] -top-14 -left-20" />
+          <img src={designfour} className="absolute z-[5px] hidden md:block -top-8 -left-14" />
           {/* Content section */}
           <motion.div
             initial={{ opacity: 0, x: isMobile ? 0 : -50, y: isMobile ? -30 : 0 }}
@@ -237,7 +237,7 @@ function Home() {
             className="w-full lg:w-1/2 h-full flex flex-col justify-center items-center lg:items-start mb-8 lg:mb-0"
           >
             <div className="space-y-4 md:space-y-6 text-center lg:text-left relative z-10">
-              <img src={design} className='absolute hidden md:block -bottom-[11.5rem] -right-20 -z-10' />
+              <img src={design} className='absolute hidden md:block -bottom-[9rem] -right-14 -z-10' />
               <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
                 <span className="block text-[#E31F25] mb-1 md:mb-2">Your Brand</span>
                 <span className="block text-[#22201E]">Our Packaging</span>
@@ -403,7 +403,7 @@ function Home() {
 
               {/* Content Section */}
               <div className="w-full lg:w-1/2 space-y-4 text-center relative lg:text-left">
-                <img src={designthree} className='hidden md:block absolute left-0 -top-28 rotate-180' />
+                <img src={designthree} className='hidden md:block absolute left-0 -top-24 rotate-180' />
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
                   {section.title}
                 </h3>
