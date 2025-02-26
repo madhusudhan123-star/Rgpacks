@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-
+import { motion } from 'framer-motion';
+import banner from '../assets/home/four.jpg'
 const Customization = () => {
     const queryFormRef = useRef(null);
     const [formData, setFormData] = useState({
@@ -229,9 +229,9 @@ const Customization = () => {
     return (
         <div className="pt-24">
             {/* Hero Section */}
-            <div className="relative h-[50vh] bg-[#E31F25] overflow-hidden">
-                <div className="absolute inset-0 bg-black/40"></div>
-                <div className="container mx-auto px-4 h-full flex items-center relative z-10">
+            <div className="relative h-[50vh] bg-[#E4272D] overflow-hidden">
+                {/* <div className="absolute inset-0 bg-black/40"></div> */}
+                <div className="container mx-auto px-4 h-full flex flex-col lg:flex-row items-center relative z-10 py-8">
                     <div className="max-w-3xl text-white">
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
@@ -249,6 +249,9 @@ const Customization = () => {
                         >
                             Upload your custom design, and let RG Pack transform it into high-quality, durable packaging that stands out!
                         </motion.p>
+                    </div>
+                    <div className="lg:w-1/2">
+                        <img src={banner} className='rounded-sm w-full' alt="RG Packs Banner" />
                     </div>
                 </div>
             </div>

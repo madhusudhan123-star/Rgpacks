@@ -16,6 +16,8 @@ import blogthree from '../assets/home/blog3.jpg'
 import design from '../assets/design.svg'
 import designtwo from '../assets/designtwo.svg'
 import designthree from '../assets/designthree.svg'
+import designfour from '../assets/designfour.svg'
+import designfive from '../assets/designfive.svg'
 
 // Add these new variants for animations
 const containerVariants = {
@@ -226,6 +228,7 @@ function Home() {
         ></motion.div>
 
         <div className="relative px-4 md:px-16 flex flex-col lg:flex-row items-center">
+          <img src={designfour} className="absolute z-[5px] -top-14 -left-20" />
           {/* Content section */}
           <motion.div
             initial={{ opacity: 0, x: isMobile ? 0 : -50, y: isMobile ? -30 : 0 }}
@@ -234,7 +237,7 @@ function Home() {
             className="w-full lg:w-1/2 h-full flex flex-col justify-center items-center lg:items-start mb-8 lg:mb-0"
           >
             <div className="space-y-4 md:space-y-6 text-center lg:text-left relative z-10">
-              <img src={design} className='absolute hidden md:block -bottom-[11.5rem] right-0 -z-10' />
+              <img src={design} className='absolute hidden md:block -bottom-[11.5rem] -right-20 -z-10' />
               <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
                 <span className="block text-[#E31F25] mb-1 md:mb-2">Your Brand</span>
                 <span className="block text-[#22201E]">Our Packaging</span>
@@ -321,7 +324,7 @@ function Home() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="py-12 md:py-24 px-4 md:px-0"
+        className="pt-12 md:pt-24 px-4 md:px-0"
       >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -335,6 +338,7 @@ function Home() {
           </h2>
           <div className="w-24 h-1 bg-[#E31F25] mx-auto my-6"></div>
           <img src={designtwo} className='absolute hidden md:block top-0' />
+          <img src={designtwo} className='absolute hidden md:block top-0 rotate-45 right-0' />
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
           {features.map((feature) => (
@@ -365,7 +369,7 @@ function Home() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="text-center py-24"
+        className="text-center py-5"
       >
         <h2 className="text-4xl font-bold text-[#22201E] mb-4">Our Services</h2>
         <div className="w-24 h-1 bg-[#E31F25] mx-auto"></div>
@@ -387,7 +391,8 @@ function Home() {
               } items-center gap-6 md:gap-12`}
             >
               {/* Image Section */}
-              <div className="w-full lg:w-1/2">
+              <div className="w-full lg:w-1/2 relative">
+                {/* <img src={designthree} className='hidden absolute -top-20 md:block' /> */}
                 <img
                   src={section.image}
                   alt={section.title}
@@ -397,14 +402,15 @@ function Home() {
               </div>
 
               {/* Content Section */}
-              <div className="w-full lg:w-1/2 space-y-4 text-center lg:text-left">
+              <div className="w-full lg:w-1/2 space-y-4 text-center relative lg:text-left">
+                <img src={designthree} className='hidden md:block absolute left-0 -top-28 rotate-180' />
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
                   {section.title}
                 </h3>
                 <p className="text-gray-600 text-base md:text-lg leading-relaxed">
                   {section.description}
                 </p>
-                <img src={designthree} className='hidden md:block' />
+                <img src={designthree} className='hidden md:block absolute right-0' />
                 {/* <button
                 onClick={() => {
                   switch (section.buttonText) {
@@ -548,14 +554,15 @@ function Home() {
               {/* Contact Information */}
               <motion.div
                 variants={isMobile ? mobileContainerVariants : containerVariants}
-                className="w-full lg:w-1/3 space-y-4 md:space-y-8"
+                className="w-full lg:w-1/3 space-y-4 relative md:space-y-8"
               >
+                <img src={designfive} className='absolute -z-10 -left-12 -top-4' />
                 <motion.div
                   variants={isMobile ? mobileItemVariants : itemVariants}
                   whileHover={cardHoverVariants.hover}
-                  className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#D1A76D]"
+                  className="bg-white p-6 rounded-xl relative z-10 shadow-lg border-l-4 border-[#D1A76D]"
                 >
-                  <div className="text-3xl mb-4">📞</div>
+                  <div className="text-3xl mb-4 ">📞</div>
                   <h3 className="text-xl font-semibold mb-2">Phone</h3>
                   <p className="text-gray-600">+91 98660 06169</p>
                 </motion.div>

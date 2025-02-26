@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import banner from '../assets/onetwo.jpg';
 
 function About() {
   const stats = [
@@ -51,29 +52,32 @@ function About() {
     <div className="pt-24">
       {/* Hero Section - Updated with legacy mention */}
       <div className="relative h-[60vh] bg-[#E4272D]  overflow-hidden">
-        {/* <div className="absolute inset-0 bg-black/30"></div> */}
-        <div className="container mx-auto px-4 h-full flex items-center relative z-10">
-          <div className="max-w-3xl text-white">
-            <motion.span
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-block bg-[#D1A76D] text-white px-4 py-2 rounded-full mb-4"
-            >
-              30+ Years of Excellence
-            </motion.span>
-            <h1 className="text-5xl font-bold mb-6">Packaging Solutions That Speak for Your Brand</h1>
-            <p className="text-xl leading-relaxed">
-              At RG Packs, we don’t just create boxes—we create experiences. Established in 2004, we have been
-              delivering high-quality packaging and branding solutions for businesses across various industries. From
-              customized printed boxes to durable corrugated and cardboard packaging, we offer innovative designs
-              that protect and enhance your product presentation
-            </p>
+        <div className="absolute inset-0 bg-black/30"></div>
+          <div className="container mx-auto px-4 h-full flex flex-col lg:flex-row items-center relative z-10 py-8">
+            <div className="max-w-3xl text-white lg:w-1/2 mb-8 lg:mb-0">
+              <motion.span
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="inline-block bg-[#D1A76D] text-white px-4 py-2 rounded-full mb-4"
+              >
+                30+ Years of Excellence
+              </motion.span>
+              <h1 className="text-3xl lg:text-5xl font-bold mb-6">Packaging Solutions That Speak for Your Brand</h1>
+              <p className="text-lg lg:text-xl leading-relaxed">
+                At RG Packs, we don't just create boxes—we create experiences. Established in 2004, we have been
+                delivering high-quality packaging and branding solutions for businesses across various industries. From
+                customized printed boxes to durable corrugated and cardboard packaging, we offer innovative designs
+                that protect and enhance your product presentation
+              </p>
+            </div>
+            <div className="lg:w-1/2">
+              <img src={banner} className='rounded-sm w-full' alt="RG Packs Banner" />
+            </div>
           </div>
-        </div>
-      </div>
+              </div>
 
-      {/* Legacy Section - New Addition */}
+              {/* Legacy Section - New Addition */}
       {/* <div className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div

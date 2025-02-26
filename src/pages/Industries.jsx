@@ -9,6 +9,7 @@ import cardseven from '../assets/industries/card7.jpg';
 import cardeight from '../assets/industries/card8.jpg';
 import cardnine from '../assets/industries/card9.jpg';
 import cardten from '../assets/industries/card10.jpg';
+import banner from '../assets/onefive.jpg'
 
 
 function Industries() {
@@ -120,7 +121,7 @@ function Industries() {
       {/* Hero Section */}
       <div className="relative h-[50vh] bg-[#E4272D] overflow-hidden">
         {/* <div className="absolute inset-0 bg-black/40"></div> */}
-        <div className="container mx-auto px-4 h-full flex items-center relative z-10">
+        <div className="container mx-auto px-4 h-full flex flex-col lg:flex-row items-center relative z-10 py-8">
           <div className="max-w-3xl text-white">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -139,6 +140,9 @@ function Industries() {
               We provide high-quality, customized packaging solutions for multiple industries,
               ensuring unique designs and premium materials.
             </motion.p>
+          </div>
+          <div className="lg:w-1/2">
+            <img src={banner} className='rounded-sm w-full' alt="RG Packs Banner" />
           </div>
         </div>
       </div>

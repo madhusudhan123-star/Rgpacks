@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { copyToClipboard } from '../utils/clipboard';
+import banner from '../assets/industries/card4.jpg'
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -68,12 +69,15 @@ function Contact() {
       {/* Hero Section */}
       <div className="relative h-[40vh] bg-[#E4272D] overflow-hidden">
         {/* <div className="absolute inset-0 bg-black/50"></div> */}
-        <div className="container mx-auto px-4 h-full flex items-center relative z-10">
+        <div className="container mx-auto px-4 h-full flex flex-col lg:flex-row items-center relative z-10 py-8">
           <div className="max-w-3xl text-white">
             <h1 className="text-5xl font-bold mb-6">Get in Touch</h1>
             <p className="text-xl leading-relaxed">
               Have questions about our packaging solutions? We're here to help and ready to serve your needs.
             </p>
+          </div>
+          <div className="lg:w-1/2">
+            <img src={banner} className='rounded-sm w-full' alt="RG Packs Banner" />
           </div>
         </div>
       </div>

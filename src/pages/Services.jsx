@@ -6,6 +6,7 @@ import cardone from '../assets/services/card1.jpg';
 import cardtwo from '../assets/services/card2.jpg';
 import cardthree from '../assets/services/card3.jpg';
 import cardfour from '../assets/services/card4.jpg';
+import banner from '../assets/oneoneoneone.jpg';
 
 function Services() {
   const services = [
@@ -100,13 +101,16 @@ function Services() {
       {/* Hero Section */}
       <div className="relative h-[60vh] bg-[#E4272D] overflow-hidden">
         {/* <div className="absolute inset-0 bg-black/40"></div> */}
-        <div className="container mx-auto px-4 h-full flex items-center relative z-10">
+        <div className="container mx-auto px-4 h-full flex flex-col lg:flex-row items-center relative z-10 py-8">
           <div className="max-w-3xl text-white">
             <h1 className="text-5xl font-bold mb-6">Comprehensive Packaging Solutions</h1>
             <p className="text-xl leading-relaxed">
               From design to delivery, we offer end-to-end packaging services that help your products
               stand out in the market while ensuring their protection throughout the supply chain.
             </p>
+          </div>
+          <div className="lg:w-1/2">
+            <img src={banner} className='rounded-sm w-full' alt="RG Packs Banner" />
           </div>
         </div>
       </div>
