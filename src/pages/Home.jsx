@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/fonts.css'
 import { motion } from 'framer-motion'; // Add this import
@@ -45,7 +45,30 @@ const cardHoverVariants = {
     boxShadow: "0px 10px 20px rgba(0,0,0,0.1)",
     transition: {
       duration: 0.3
-    } 
+    }
+  }
+};
+
+// Add mobile-specific variants
+const mobileContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      when: "beforeChildren"
+    }
+  }
+};
+
+const mobileItemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.3
+    }
   }
 };
 
@@ -178,10 +201,23 @@ function Home() {
     navigate('/about');
   };
 
+  // Add responsive state
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  // Add resize handler
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <div className="p-4 ">
+    <div className="p-2 md:p-4">
       {/* Hero Section with enhanced animations */}
-      <div className="relative  mt-24 md:px-12 min-h-[80vh]">
+      <div className="relative mt-28 md:px-12 min-h-[80vh]">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.7 }}
@@ -189,25 +225,25 @@ function Home() {
           className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100"
         ></motion.div>
 
-        <div className="relative px-16 flex flex-col lg:flex-row items-center">
+        <div className="relative px-4 md:px-16 flex flex-col lg:flex-row items-center">
           {/* Content section */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: isMobile ? 0 : -50, y: isMobile ? -30 : 0 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="w-full lg:w-1/2 h-full flex flex-col justify-center items-start mb-12 lg:mb-0"
+            className="w-full lg:w-1/2 h-full flex flex-col justify-center items-center lg:items-start mb-8 lg:mb-0"
           >
-            <div className="space-y-6 relative z-10">
-              <img src={design} className='absolute -bottom-[11.5rem] right-0 -z-10' />
-              <h1 className="text-4xl mb-0 pb-0 md:text-6xl lg:text-7xl font-bold">
-                <span className="block text-[#E31F25] mb-2">Your Brand</span>
+            <div className="space-y-4 md:space-y-6 text-center lg:text-left relative z-10">
+              <img src={design} className='absolute hidden md:block -bottom-[11.5rem] right-0 -z-10' />
+              <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
+                <span className="block text-[#E31F25] mb-1 md:mb-2">Your Brand</span>
                 <span className="block text-[#22201E]">Our Packaging</span>
                 {/* <span className="block text-[#D1A76D]">Solutions</span> */}
               </h1>
 
-              <p className="text-lg mt-0 pt-0 md:text-xl text-gray-600 max-w-xl">Elevate Every Unboxing Experience</p>
+              <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-xl mx-auto lg:mx-0">Elevate Every Unboxing Experience</p>
 
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -231,14 +267,14 @@ function Home() {
 
           {/* Image section */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: isMobile ? 0 : 50, y: isMobile ? 30 : 0 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full lg:w-1/2 relative z-10"
+            className="w-full lg:w-1/2 px-4 relative z-10 md:px-0"
           >
             {/* Preview Section */}
             <div className="relative">
-              <div className="mb-6 h-64 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="mb-4 md:mb-6 h-48 sm:h-64 md:h-96 rounded-xl md:rounded-2xl overflow-hidden shadow-lg md:shadow-2xl">
                 {selectedImage && (
                   <motion.img
                     initial={{ scale: 1 }}
@@ -252,7 +288,7 @@ function Home() {
               </div>
 
               {/* Thumbnail Gallery */}
-              <div className="grid grid-cols-4 gap-3">
+              <div className="grid grid-cols-4 gap-2 md:gap-3">
                 {images.map((image) => (
                   <motion.div
                     key={image.id}
@@ -281,11 +317,11 @@ function Home() {
 
       {/* Why Choose RG Pack Section with enhanced animations */}
       <motion.div
-        variants={containerVariants}
+        variants={isMobile ? mobileContainerVariants : containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="py-24"
+        className="py-12 md:py-24 px-4 md:px-0"
       >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -298,13 +334,13 @@ function Home() {
             Why Choose <span className="text-[#E31F25]">RG Pack</span>?
           </h2>
           <div className="w-24 h-1 bg-[#E31F25] mx-auto my-6"></div>
-          <img src={designtwo} className='absolute top-0' />
+          <img src={designtwo} className='absolute hidden md:block top-0' />
         </motion.div>
-        <div className="grid grid-cols-1 relative sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
           {features.map((feature) => (
             <motion.div
               key={feature.id}
-              variants={itemVariants}
+              variants={isMobile ? mobileItemVariants : itemVariants}
               whileHover={cardHoverVariants.hover}
               className="bg-white rounded-xl p-8 transition-all duration-300"
             >
@@ -325,7 +361,7 @@ function Home() {
 
       {/* Main Title */}
       <motion.div
-        variants={containerVariants}
+        variants={isMobile ? mobileContainerVariants : containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -336,38 +372,40 @@ function Home() {
       </motion.div>
 
       {/* Alternating Sections */}
-      {sections.map((section, index) => (
-        <motion.div
-          key={section.id}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className={` py-8 md:py-16 px-4 ${index !== sections.length - 1 ? 'border-b border-[#D1A76D]' : ''
-            }`}
-        >
-          <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-            } items-center gap-8 lg:gap-12`}
+      <div className="px-4 md:px-0">
+        {sections.map((section, index) => (
+          <motion.div
+            key={section.id}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className={` py-8 md:py-16 ${index !== sections.length - 1 ? 'border-b border-[#D1A76D]' : ''
+              }`}
           >
-            {/* Image Section */}
-            <div className="w-full lg:w-1/2">
-              <img
-                src={section.image}
-                alt={section.title}
-                className="rounded-lg shadow-lg w-full h-auto"
-              />
-            </div>
+            <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+              } items-center gap-6 md:gap-12`}
+            >
+              {/* Image Section */}
+              <div className="w-full lg:w-1/2">
+                <img
+                  src={section.image}
+                  alt={section.title}
+                  className="rounded-lg shadow-lg w-full h-auto object-cover"
+                  style={{ maxHeight: isMobile ? '300px' : '400px' }}
+                />
+              </div>
 
-            {/* Content Section */}
-            <div className="w-full lg:w-1/2 space-y-4 relative md:space-y-6 text-center lg:text-left">
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
-                {section.title}
-              </h3>
-              <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-                {section.description}
-              </p>
-              <img src={designthree} className='' />
-              {/* <button
+              {/* Content Section */}
+              <div className="w-full lg:w-1/2 space-y-4 text-center lg:text-left">
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
+                  {section.title}
+                </h3>
+                <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+                  {section.description}
+                </p>
+                <img src={designthree} className='hidden md:block' />
+                {/* <button
                 onClick={() => {
                   switch (section.buttonText) {
                     case 'Learn More':
@@ -388,18 +426,19 @@ function Home() {
                 {section.buttonText}
               </button> */}
 
+              </div>
             </div>
-          </div>
-        </motion.div>
-      ))}
+          </motion.div>
+        ))}
+      </div>
 
       {/* Benefits Section with enhanced animations */}
       <motion.div
-        variants={containerVariants}
+        variants={isMobile ? mobileContainerVariants : containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="py-8 md:py-24 bg-white"
+        className="py-12 md:py-24 px-4 md:px-0"
       >
         <div className="">
           <div className="text-center mb-12">
@@ -410,11 +449,11 @@ function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
             {benefits.map((benefit) => (
               <motion.div
                 key={benefit.id}
-                variants={itemVariants}
+                variants={isMobile ? mobileItemVariants : itemVariants}
                 whileHover={cardHoverVariants.hover}
                 className="group text-center bg-gray-50 p-8 rounded-xl shadow-sm border-b-2 border-[#D1A76D]"
               >
@@ -431,120 +470,122 @@ function Home() {
       </motion.div>
 
       {/* Contact Us Section with enhanced animations */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="py-8 md:py-24"
-      >
-        <div className="">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-[#22201E] mb-4">Contact Us</h2>
-            <div className="w-24 h-1 bg-[#E31F25] mx-auto mb-6"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Get in touch with us for any questions or inquiries about our packaging solutions
-            </p>
-          </div>
+      <div className="px-4 md:px-0">
+        <motion.div
+          variants={isMobile ? mobileContainerVariants : containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="py-8 md:py-24"
+        >
+          <div className="">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-[#22201E] mb-4">Contact Us</h2>
+              <div className="w-24 h-1 bg-[#E31F25] mx-auto mb-6"></div>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Get in touch with us for any questions or inquiries about our packaging solutions
+              </p>
+            </div>
 
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
-            {/* Contact Form */}
-            <motion.div
-              variants={itemVariants}
-              className="w-full lg:w-2/3"
-            >
-              <form onSubmit={handleFormSubmit} className="bg-white p-4 md:p-8 rounded-xl shadow-lg">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
-                  <div>
-                    <label className="block text-gray-700 mb-2">Name</label>
+            <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
+              {/* Contact Form */}
+              <motion.div
+                variants={isMobile ? mobileItemVariants : itemVariants}
+                className="w-full lg:w-2/3"
+              >
+                <form onSubmit={handleFormSubmit} className="bg-white p-4 md:p-8 rounded-xl shadow-lg">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
+                    <div>
+                      <label className="block text-gray-700 mb-2">Name</label>
+                      <input
+                        type="text"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-gray-700 mb-2">Email</label>
+                      <input
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="mb-6">
+                    <label className="block text-gray-700 mb-2">Phone</label>
                     <input
-                      type="text"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      type="tel"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                      required
                     />
                   </div>
-                  <div>
-                    <label className="block text-gray-700 mb-2">Email</label>
-                    <input
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  <div className="mb-6">
+                    <label className="block text-gray-700 mb-2">Message</label>
+                    <textarea
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      rows="4"
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                       required
-                    />
+                    ></textarea>
                   </div>
-                </div>
-                <div className="mb-6">
-                  <label className="block text-gray-700 mb-2">Phone</label>
-                  <input
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  />
-                </div>
-                <div className="mb-6">
-                  <label className="block text-gray-700 mb-2">Message</label>
-                  <textarea
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    rows="4"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    required
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  onClick={() => navigate('/contact')}
-                  className="w-full bg-[#E31F25] hover:bg-[#D1A76D] text-white py-3 px-6 rounded-lg transition-colors"
+                  <button
+                    type="submit"
+                    onClick={() => navigate('/contact')}
+                    className="w-full bg-[#E31F25] hover:bg-[#D1A76D] text-white py-3 px-6 rounded-lg transition-colors"
+                  >
+                    Send Message
+                  </button>
+                </form>
+              </motion.div>
+
+              {/* Contact Information */}
+              <motion.div
+                variants={isMobile ? mobileContainerVariants : containerVariants}
+                className="w-full lg:w-1/3 space-y-4 md:space-y-8"
+              >
+                <motion.div
+                  variants={isMobile ? mobileItemVariants : itemVariants}
+                  whileHover={cardHoverVariants.hover}
+                  className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#D1A76D]"
                 >
-                  Send Message
-                </button>
-              </form>
-            </motion.div>
+                  <div className="text-3xl mb-4">📞</div>
+                  <h3 className="text-xl font-semibold mb-2">Phone</h3>
+                  <p className="text-gray-600">+91 98660 06169</p>
+                </motion.div>
 
-            {/* Contact Information */}
-            <motion.div
-              variants={containerVariants}
-              className="w-full lg:w-1/3 space-y-4 md:space-y-8"
-            >
-              <motion.div
-                variants={itemVariants}
-                whileHover={cardHoverVariants.hover}
-                className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#D1A76D]"
-              >
-                <div className="text-3xl mb-4">📞</div>
-                <h3 className="text-xl font-semibold mb-2">Phone</h3>
-                <p className="text-gray-600">+91 98660 06169</p>
-              </motion.div>
+                <motion.div
+                  variants={isMobile ? mobileItemVariants : itemVariants}
+                  whileHover={cardHoverVariants.hover}
+                  className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#D1A76D]"
+                >
+                  <div className="text-3xl mb-4">✉️</div>
+                  <h3 className="text-xl font-semibold mb-2">Email</h3>
+                  <p className="text-gray-600">info@rgpack.in</p>
+                </motion.div>
 
-              <motion.div
-                variants={itemVariants}
-                whileHover={cardHoverVariants.hover}
-                className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#D1A76D]"
-              >
-                <div className="text-3xl mb-4">✉️</div>
-                <h3 className="text-xl font-semibold mb-2">Email</h3>
-                <p className="text-gray-600">info@rgpack.in</p>
+                <motion.div
+                  variants={isMobile ? mobileItemVariants : itemVariants}
+                  whileHover={cardHoverVariants.hover}
+                  className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#D1A76D]"
+                >
+                  <div className="text-3xl mb-4">📍</div>
+                  <h3 className="text-xl font-semibold mb-2">Visit Us</h3>
+                  <p className="text-gray-600">
+                    Plot D-4 and D-5, IDA, Gandhi Nagar Industrial Area, Kukatpally, Hyderabad, Telangana 500037
+                  </p>
+                </motion.div>
               </motion.div>
-
-              <motion.div
-                variants={itemVariants}
-                whileHover={cardHoverVariants.hover}
-                className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#D1A76D]"
-              >
-                <div className="text-3xl mb-4">📍</div>
-                <h3 className="text-xl font-semibold mb-2">Visit Us</h3>
-                <p className="text-gray-600">
-                  Plot D-4 and D-5, IDA, Gandhi Nagar Industrial Area, Kukatpally, Hyderabad, Telangana 500037
-                </p>
-              </motion.div>
-            </motion.div>
+            </div>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
 
     </div>
   );
