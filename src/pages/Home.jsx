@@ -403,7 +403,7 @@ function Home() {
 
               {/* Content Section */}
               <div className="w-full lg:w-1/2 space-y-4 text-center relative lg:text-left">
-                <img src={designthree} className='hidden md:block absolute left-0 -top-24 rotate-180' />
+                <img src={designthree} className='hidden md:block absolute left-0 -top-28 rotate-180' />
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
                   {section.title}
                 </h3>

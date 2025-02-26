@@ -6,7 +6,7 @@ import cardone from '../assets/services/card1.jpg';
 import cardtwo from '../assets/services/card2.jpg';
 import cardthree from '../assets/services/card3.jpg';
 import cardfour from '../assets/services/card4.jpg';
-import banner from '../assets/oneoneoneone.jpg';
+import banner from '../assets/industries/card9.jpg';
 
 function Services() {
   const services = [
@@ -130,7 +130,7 @@ function Services() {
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
               >
                 {/* Image Section */}
-                <div className="h-40 md:h-48 overflow-hidden">
+                <div className=" overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -180,7 +180,7 @@ function Services() {
                   <img
                     src={specialty.image}
                     alt={specialty.title}
-                    className="w-full h-48 md:h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-4 md:p-6">
