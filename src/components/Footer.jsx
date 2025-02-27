@@ -59,7 +59,7 @@ function Footer() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
         </svg>
       ),
-      url: "#",
+      url: "https://www.facebook.com/profile.php?id=61573527638007",
       color: "hover:bg-blue-600"
     },
     {
@@ -69,7 +69,7 @@ function Footer() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 15.02l5.75-3.27-5.75-3.27v6.54z" />
         </svg>
       ),
-      url: "https://www.youtube.com/@RGPacks",
+      url: "https://www.youtube.com/@RGPack-c6k",
       color: "hover:bg-sky-500"
     },
     {
@@ -78,7 +78,7 @@ function Footer() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01M7.5 21h9a3 3 0 003-3V6a3 3 0 00-3-3h-9a3 3 0 00-3 3v12a3 3 0 003 3z" />
         </svg>
       ),
-      url: "#",
+      url: "https://www.instagram.com/rgpacksbox?igsh=ZTI5Y3R5OTRkbnI2 ",
       color: "hover:bg-pink-600"
     },
   ];
