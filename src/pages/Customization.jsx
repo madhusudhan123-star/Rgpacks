@@ -169,7 +169,7 @@ const Customization = () => {
             // Use standard HTML form submission
             const form = document.createElement('form');
             form.method = 'POST';
-            form.action = 'https://formsubmit.co/rgpack444@gmail.com';
+            form.action = 'https://formsubmit.co/9db197774321ef2603fec18921f26677';
             form.enctype = 'multipart/form-data';
 
             // Append all form data as hidden inputs
