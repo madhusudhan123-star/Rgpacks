@@ -4,7 +4,7 @@ const Privacy = () => {
     const policies = [
         {
             title: "Damaged, Wrong, or Defective Item Received",
-            content: "At RG Packs, customer satisfaction is our top priority. If you receive a damaged, defective, or incorrect order, please contact us immediately at info@rgpack.in or call us at +91 98660 06169. Our team will promptly resolve the issue to ensure a smooth experience for you.",
+            content: "At RG Packs, customer satisfaction is our top priority. If you receive a damaged, defective, or incorrect order, please contact us immediately at rgpack444@gmail.com or call us at +91 98660 06169. Our team will promptly resolve the issue to ensure a smooth experience for you.",
             icon: (
                 <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -22,7 +22,7 @@ const Privacy = () => {
         },
         {
             title: "Cancellations",
-            content: "Orders can be canceled within 48 hours of placement. If you wish to cancel your order, please email info@rgpack.in or call us at +91 98660 06169, and our team will process a full refund. Orders cannot be canceled after this period, as they move into production.",
+            content: "Orders can be canceled within 48 hours of placement. If you wish to cancel your order, please email rgpack444@gmail.com or call us at +91 98660 06169, and our team will process a full refund. Orders cannot be canceled after this period, as they move into production.",
             icon: (
                 <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -97,7 +97,7 @@ const Privacy = () => {
                         </p>
                         <div className="space-y-2">
                             <p className="text-lg">
-                                Email: <a href="mailto:info@rgpack.in" className="text-[#E4272D] hover:text-[#D1A76D]">info@rgpack.in</a>
+                                Email: <a href="mailto:rgpack444@gmail.com" className="text-[#E4272D] hover:text-[#D1A76D]">rgpack444@gmail.com</a>
                             </p>
                             <p className="text-lg">
                                 Phone: <a href="tel:+919866006169" className="text-[#E4272D] hover:text-[#D1A76D]">+91 98660 06169</a>

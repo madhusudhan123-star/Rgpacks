@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { copyToClipboard } from '../utils/clipboard';
-import banner from '../assets/industries/card4.jpg'
+import banner from '../assets/industries/card4.jpg';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 function Contact() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,6 +16,7 @@ function Contact() {
   });
 
   const [copied, setCopied] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleCopy = async (text, type) => {
     const success = await copyToClipboard(text);
@@ -41,7 +45,7 @@ function Contact() {
         </svg>
       ),
       title: "Email Us",
-      details: ["info@rgpack.in"],
+      details: ["rgpack444@gmail.com"],
       color: "border-[#D1A76D]",
       type: "email"
     },
@@ -58,10 +62,62 @@ function Contact() {
     }
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Add your form submission logic here
+    setIsSubmitting(true);
+    const loadingToast = toast.loading('Sending message...');
+
+    try {
+      // Create the form
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = 'https://formsubmit.co/rgpack444@gmail.com';
+
+      // Add all form fields
+      const formFields = {
+        ...formData,
+        _captcha: 'false',
+        _template: 'table',
+        _subject: `Contact Form: ${formData.subject}`,
+        _next: window.location.origin // Redirect to home page after submission
+      };
+
+      // Create and append inputs
+      Object.entries(formFields).forEach(([key, value]) => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = value || ''; // Handle null/undefined values
+        form.appendChild(input);
+      });
+
+      // Add form to body and submit
+      document.body.appendChild(form);
+      form.submit();
+
+      // Show success message
+      toast.success('Message sent successfully!', { id: loadingToast });
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      });
+
+      // Redirect after short delay
+      setTimeout(() => {
+        navigate('/');
+      }, 2000);
+
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast.error('Failed to send message. Please try again.', { id: loadingToast });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -135,9 +191,10 @@ function Contact() {
             <form onSubmit={handleSubmit} className="bg-white p-4 md:p-8 rounded-xl shadow-lg">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
                 <div>
-                  <label className="block text-gray-700 text-sm md:text-base mb-2">Name</label>
+                  <label className="block text-gray-700 text-sm md:text-base mb-2">Name *</label>
                   <input
                     type="text"
+                    name="name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E31F25] focus:border-transparent"
@@ -145,9 +202,10 @@ function Contact() {
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-700 text-sm md:text-base mb-2">Email</label>
+                  <label className="block text-gray-700 text-sm md:text-base mb-2">Email *</label>
                   <input
                     type="email"
+                    name="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E31F25] focus:border-transparent"
@@ -155,20 +213,23 @@ function Contact() {
                   />
                 </div>
               </div>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
                 <div>
                   <label className="block text-gray-700 text-sm md:text-base mb-2">Phone</label>
                   <input
                     type="tel"
+                    name="phone"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E31F25] focus:border-transparent"
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-700 text-sm md:text-base mb-2">Subject</label>
+                  <label className="block text-gray-700 text-sm md:text-base mb-2">Subject *</label>
                   <input
                     type="text"
+                    name="subject"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     className="w-full px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E31F25] focus:border-transparent"
@@ -176,9 +237,11 @@ function Contact() {
                   />
                 </div>
               </div>
+
               <div className="mb-4 md:mb-6">
-                <label className="block text-gray-700 text-sm md:text-base mb-2">Message</label>
+                <label className="block text-gray-700 text-sm md:text-base mb-2">Message *</label>
                 <textarea
+                  name="message"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows="6"
@@ -186,11 +249,14 @@ function Contact() {
                   required
                 ></textarea>
               </div>
+
               <button
                 type="submit"
-                className="w-full bg-[#E31F25] hover:bg-[#D1A76D] text-white py-2 md:py-3 px-4 md:px-6 rounded-lg transition-colors text-sm md:text-base font-semibold"
+                disabled={isSubmitting}
+                className={`w-full ${isSubmitting ? 'bg-gray-400' : 'bg-[#E31F25] hover:bg-[#D1A76D]'
+                  } text-white py-2 md:py-3 px-4 md:px-6 rounded-lg transition-colors text-sm md:text-base font-semibold`}
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>
@@ -200,13 +266,14 @@ function Contact() {
       {/* Map Section */}
       <div className="h-[300px] md:h-[400px] w-full">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.9385772641825!2d78.4312!3d17.4937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI5JzM3LjMiTiA3OMKwMjUnNTIuMyJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.938577264183!2d78.42901231491453!3d17.493730988016674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91895bb8c43d%3A0xb5e3b3c0c5d0c1c1!2sIDA%20Gandhinagar%2C%20Kukatpally%2C%20Hyderabad%2C%20Telangana%20500037!5e0!3m2!1sen!2sin!4v1625001234567!5m2!1sen!2sin"
           width="100%"
           height="100%"
           style={{ border: 0 }}
           allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
+          title="RG Packs Location"
         ></iframe>
       </div>
     </div>

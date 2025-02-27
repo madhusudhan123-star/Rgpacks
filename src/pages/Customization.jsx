@@ -1,5 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom'; // Add this import
 import banner from '../assets/industries/card9.jpg'; // Update with correct path
 import card1 from '../assets/customization/card1.jpg'
 import card2 from '../assets/customization/card2.jpg'
@@ -7,6 +9,7 @@ import card3 from '../assets/customization/card3.jpg'
 import card4 from '../assets/customization/card4.jpg'
 
 const Customization = () => {
+    const navigate = useNavigate(); // Add this hook
     const queryFormRef = useRef(null);
     const [formData, setFormData] = useState({
         name: '',
@@ -144,17 +147,71 @@ const Customization = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!validateForm()) return;
+        if (!file) {
+            toast.error('Please upload a file first');
+            return;
+        }
 
-        setIsSubmitting(true);
+        const loadingToast = toast.loading('Submitting your request...');
+
         try {
-            // Add your form submission logic here
-            await new Promise(resolve => setTimeout(resolve, 1000)); // Simulated API call
+            // Create FormData object
+            const formDataObj = new FormData();
+            formDataObj.append('name', formData.name);
+            formDataObj.append('email', formData.email);
+            formDataObj.append('phone', formData.phone || '');
+            formDataObj.append('query', formData.query);
+            formDataObj.append('file', file);
+            formDataObj.append('_captcha', 'false');
+            formDataObj.append('_template', 'table');
+            formDataObj.append('_subject', `Design Request from ${formData.name}`);
+
+            // Use standard HTML form submission
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://formsubmit.co/rgpack444@gmail.com';
+            form.enctype = 'multipart/form-data';
+
+            // Append all form data as hidden inputs
+            for (let pair of formDataObj.entries()) {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = pair[0];
+                input.value = pair[1];
+                form.appendChild(input);
+            }
+
+            // Add the file input
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.name = 'attachment';
+            fileInput.style.display = 'none';
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(file);
+            fileInput.files = dataTransfer.files;
+            form.appendChild(fileInput);
+
+            // Append form to body, submit it, and remove it
+            document.body.appendChild(form);
+            form.submit();
+            document.body.removeChild(form);
+
+            toast.success('Request submitted successfully!', { id: loadingToast });
+
+            // Reset form
             setFormData({ name: '', email: '', phone: '', query: '' });
-            alert('Query submitted successfully!');
+            setFile(null);
+            setErrors({});
+            setFileError('');
+
+            // Add navigation after successful submission
+            setTimeout(() => {
+                navigate('/');
+            }, 2000);
+
         } catch (error) {
-            alert('Failed to submit query. Please try again.');
-        } finally {
-            setIsSubmitting(false);
+            console.error('Submission error:', error);
+            toast.error('Failed to submit request. Please try again.', { id: loadingToast });
         }
     };
 
@@ -367,23 +424,9 @@ const Customization = () => {
                         </motion.div>
 
                         <motion.form
-                            onSubmit={async (e) => {
-                                e.preventDefault();
-                                if (!validateForm()) return;
-
-                                setIsSubmitting(true);
-                                try {
-                                    // Add your form submission logic here
-                                    await new Promise(resolve => setTimeout(resolve, 1000));
-                                    setFormData({ name: '', email: '', phone: '', query: '' });
-                                    alert('Query submitted successfully!');
-                                } catch (error) {
-                                    console.error('Form submission error:', error);
-                                    alert('Failed to submit query. Please try again.');
-                                } finally {
-                                    setIsSubmitting(false);
-                                }
-                            }}
+                            onSubmit={handleSubmit}
+                            method="POST"
+                            encType="multipart/form-data"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             className="bg-white p-8 rounded-xl shadow-lg"

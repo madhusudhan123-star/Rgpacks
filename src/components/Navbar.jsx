@@ -28,7 +28,7 @@ function Navbar() {
 
       {/* Main Navbar */}
       <div className="bg-white">
-        <div className="container mx-auto px-2 md:px-20 py-6">
+        <div className="px-2 md:px-16 py-6">
           <div className="flex justify-between items-center">
             <Link to="/" className="w-48">
               <img src={logoimg} alt='logo' className='w-full' />

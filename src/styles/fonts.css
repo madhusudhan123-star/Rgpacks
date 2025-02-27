@@ -1,19 +1,19 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 .font {
-    font-family: 'Eirene Sans';
-    src: url('../assets/font/EireneSans-Regular.otf') format('opentype');
+     font-family: "Montserrat", serif;
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 .font-bold {
-    font-family: 'Eirene Sans';
-    src: url('../assets/font/EireneSans-Bold.otf') format('opentype');
+     font-family: "Montserrat", serif;
     font-weight: 700;
     font-display: swap;
 }
 .font-italic {
-    font-family: 'Eirene Sans';
-    src: url('../assets/font/EireneSans-Italic.otf') format('opentype');
+     font-family: "Montserrat", serif;
     font-style: italic;
     font-weight: 400;
     font-display: swap;

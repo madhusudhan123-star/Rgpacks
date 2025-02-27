@@ -195,14 +195,14 @@ function Footer() {
               <motion.p
                 className="flex items-center space-x-3 group cursor-pointer"
                 whileHover={{ x: 5 }}
-                onClick={() => handleCopy('info@rgpack.in', 'email')}
+                onClick={() => handleCopy('rgpack444@gmail.com', 'email')}
                 title="Click to copy email"
               >
                 <svg className="w-5 h-5 flex-shrink-0 group-hover:text-[#E31F25] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 <span className="group-hover:text-[#D1A76D] transition-colors relative">
-                  info@rgpack.in
+                  rgpack444@gmail.com
                   {copied === 'email' && (
                     <span className="absolute -top-8 left-0 bg-green-500 text-white text-xs py-1 px-2 rounded">
                       Copied!

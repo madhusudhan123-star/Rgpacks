@@ -217,7 +217,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="p-2 md:p-4 overflow-x-hidden">
+    <div className="p-2 md:p-10 overflow-x-hidden">
       {/* Hero Section with enhanced animations */}
       <div className="relative mt-28 md:px-12 min-h-[80vh]">
         <motion.div
@@ -237,7 +237,7 @@ function Home() {
             className="w-full lg:w-1/2 h-full flex flex-col justify-center items-center lg:items-start mb-8 lg:mb-0"
           >
             <div className="space-y-4 md:space-y-6 text-center lg:text-left relative z-10">
-              <img src={design} className='absolute hidden md:block -bottom-[9rem] -right-14 -z-10' />
+              <img src={design} className='absolute hidden md:block -bottom-[9rem] right-3 -z-10' />
               <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
                 <span className="block text-[#E31F25] mb-1 md:mb-2">Your Brand</span>
                 <span className="block text-[#22201E]">Our Packaging</span>
@@ -582,7 +582,7 @@ function Home() {
                     </svg>
                   </div>
                   <h3 className="text-xl font-semibold mb-2">Email</h3>
-                  <p className="text-gray-600">info@rgpack.in</p>
+                  <p className="text-gray-600">rgpack444@gmail.com</p>
                 </motion.div>
 
                 <motion.div
