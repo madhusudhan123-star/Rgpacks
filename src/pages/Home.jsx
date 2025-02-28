@@ -217,7 +217,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="p-2 md:p-10 overflow-x-hidden">
+    <div className="p-2 md:p-16 overflow-x-hidden">
       {/* Hero Section with enhanced animations */}
       <div className="relative mt-28 md:px-12 min-h-[80vh]">
         <motion.div
@@ -396,7 +396,7 @@ function Home() {
                 <img
                   src={section.image}
                   alt={section.title}
-                  className="rounded-lg shadow-lg w-full h-auto object-cover"
+                  className="rounded-lg shadow-lg w-full h-auto object-fit"
                   style={{ maxHeight: isMobile ? '300px' : '400px' }}
                 />
               </div>
